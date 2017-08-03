@@ -1,9 +1,9 @@
 Buttons
 -------
 
-So far we have created code that makes the device do something. This is called
-*output*. However, we also need the device to react to things. Such things are
-called *inputs*.
+Jak dotychczas utworzyliśmy kod umożliwiający urządzeniu pokazywanie czegoś. Nazywa się to 
+*wyjście*. Musimy też jednak umożliwić urządzeniu reagowanie na zdarzenia.
+Nazywa się to *wejście*. 
 
 It's easy to remember: output is what the device puts out to the world
 whereas input is what goes into the device for it to process.
