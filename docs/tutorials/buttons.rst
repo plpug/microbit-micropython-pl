@@ -1,25 +1,28 @@
 Buttons
 -------
 
-Jak dotychczas utworzyliśmy kod umożliwiający urządzeniu pokazywanie czegoś. Nazywa się to 
-*wyjście*. Musimy też jednak umożliwić urządzeniu reagowanie na zdarzenia.
-Nazywa się to *wejście*. 
+Jak dotychczas utworzyliśmy kod umożliwiający urządzeniu pokazywanie czegoś.
+Nazywa się to *wyjście*. Musimy też jednak umożliwić urządzeniu reagowanie na
+zdarzenia. Nazywa się to *wejście*.
 
-It's easy to remember: output is what the device puts out to the world
-whereas input is what goes into the device for it to process.
+Łatwo zapamiętać: wyjście dotyczy wszystkiego co wychodzi z urządzenia,
+natomiast wejście to wszystko co przychodzi do urządzenia w celu
+przetworzenia.
 
-The most obvious means of input on the micro:bit are its two buttons, labelled
-``A`` and ``B``. Somehow, we need MicroPython to react to button presses.
+Najbardziej oczywiste jest to, że wejściem będą dwa przyciski na mikrobicie,
+które oznaczone są jako 'A' i 'B'. Potrzebujemy aby MicroPython jakoś
+zareagował na naciśnięcie przycisku.
 
-This is remarkably simple::
+To jest fenomenalnie proste:
 
     from microbit import *
 
     sleep(10000)
     display.scroll(str(button_a.get_presses()))
 
-All this script does is sleep for ten thousand milliseconds (i.e. 10 seconds)
-and then scrolls the number of times you pressed button ``A``. That's it!
+Cały skrypt jest uśpiony przez 10 000 milisekund (czyli 10 sekund) a po tym
+czasie na wyświetlaczu przewinie się liczba ilości wciśnięć przycisku 'A'.
+To tyle.
 
 While it's a pretty useless script, it introduces a couple of interesting new
 ideas:
