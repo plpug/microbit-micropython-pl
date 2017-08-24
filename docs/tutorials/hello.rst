@@ -1,8 +1,8 @@
-Witaj, świecie!
+Hello, World!
 -------------
 
-Tradycyjnie, gdy uczymy się programowania w nowym języku, pierwsza aplikacja
-to wyświetlenie komunikatu "Hello, world!" (ang. "witaj świecie").
+Tradycyjnie, pierwszym krokiem w nauce nowego języka programowania jest stworzenie
+aplikacji, która wyświetli komunikat "Witaj świecie!" (ang. "Hello, World").
 
 
 .. image:: ../scroll-hello.gif
@@ -12,7 +12,7 @@ To proste z MicroPythonem::
     from microbit import *
     display.scroll("Hello, world!")
 
-Każda linia ma swoje znaczenie. Pierwsza z nich::
+Każdy wiersz ma swoje znaczenie. Pierwsza z nich::
 
     from microbit import *
 
@@ -27,15 +27,15 @@ Druga linia::
 
     display.scroll("Hello, world!")
     
-...mówi MicroPythonowi, by użył wyświetlacz do wyświetlenia przesuwającego
-się ciągu znaków "Hello, world!". ``display`` w tym przypadku to *obiekt*
+...mówi MicroPythonowi, by wyświetlił przesuwający się ciągu znaków "Hello, 
+world!". ``display`` w tym przypadku to *obiekt*
 (ang. object) z modułu ``microbit``, który reprezentuje fizyczny wyświetlacz
-urządzenia (mówimy "obiekt" zamiast "rzecz", "to coś" czy "wichajster").
-By wydać wyświetlaczowi polecenie, piszemy jego nazwę po kropce ``.`` - tak
+urządzenia (mówimy "obiekt" zamiast "rzecz" lub "to coś").
+By wydać wyświetlaczowi polecenie, używamy jego nazwy po kropce ``.`` - tak
 naprawdę takie polecenia nazywamy *metodami* (ang. method). W tym przypadku
-używamy polecenia ``scroll`` (ang. przewiń). Ponieważ polecenie ``scroll``
-musi wiedzieć jakie znaki pokazać na wyświetlaczu, przekazujemy je objęte
-cudzysłowem (``"``) i nawiasami (``(`` i ``)``). W programowaniu nazywamy
+używamy polecenia ``scroll`` (ang. przewiń). Polecenie ``scroll``
+musi wiedzieć jakie znaki pokazać na wyświetlaczu. Wpisujemy je ujęte
+w cudzysłów (``"``) i zamknięte w nawiasy (``(`` i ``)``). W programowaniu nazywamy
 to *argumentami* (ang. arguments). Zatem ``display.scroll("Hello, world!")``
 oznacza, po angielsku, "chcę użyć wyświetlacza by pokazać przesuwający się
 tekst 'Hello, world!'". Jeśli metoda nie potrzebuje żadnych argumentów,
