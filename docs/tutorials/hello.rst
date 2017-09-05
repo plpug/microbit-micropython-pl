@@ -12,7 +12,7 @@ To proste z MicroPythonem::
     from microbit import *
     display.scroll("Hello, world!")
 
-Każdy wiersz ma swoje znaczenie. Pierwsza z nich::
+Każdy wiersz ma swoje znaczenie. Pierwszy z nich::
 
     from microbit import *
 
@@ -27,7 +27,7 @@ Druga linia::
 
     display.scroll("Hello, world!")
     
-...mówi MicroPythonowi, by wyświetlił przesuwający się ciągu znaków "Hello, 
+...mówi MicroPythonowi, by wyświetlił przesuwający się ciąg znaków "Hello, 
 world!". ``display`` w tym przypadku to *obiekt*
 (ang. object) z modułu ``microbit``, który reprezentuje fizyczny wyświetlacz
 urządzenia (mówimy "obiekt" zamiast "rzecz" lub "to coś").
@@ -58,16 +58,16 @@ go zmienić tak, by przywitał ciebie? Na przykład, chciałbym by tekst brzmia�
     ``microbit`` i ``microBit`` są przez Pythona traktowane jak trzy osobne
     rzeczy. Jeśli w treści błędu zobaczysz ``NameError``, oznacza to że
     prawdopodobnie wpisana nazwa została podana niedokładnie. To jak różnica
-    między "Pawłem" i "Gawłem". To dwa różne imiona, choć brzmią i wyglądają
+    między "Pawłem" i "Gawłem" - dwa różne imiona, choć brzmią i wyglądają
     podobnie.
     
     Natomiast jeśli w treści błędu zobaczysz ``SyntaxError``, oznacza to po
     prostu, że podany kod jest niezrozumiały dla MicroPythona. Sprawdź czy
     nie brakuje żadnych znaków specjalnych, jak ``"`` czy ``:``. To tak jak
-    gdyby umieścić. kropkę w środku zdania. Trudno jest cię wtedy dobrze
-    zrozumieć.
+    gdyby umieścić. kropkę w środku zdania. Trudno jest wtedy zrozumieć co 
+    autor miał na myśli.
     
-    Twój microbi może przestać odpowiadać: nie uda się zaprogramować nowego
+    Twój microbit może przestać odpowiadać: nie uda się zaprogramować nowego
     kodu lub wpisywać poleceń w konsoli REPL. W takim przypadku spróbuj
     odłączyć urządzenie od prądu i podłączyć ponownie po krótkiej chwili.
     Chodzi o to, by odłączyć kabel USB (i kabel baterii jeśli jest podłączony),
