@@ -1,4 +1,4 @@
-Buttons
+Przyciski
 -------
 
 Jak dotychczas utworzyliśmy kod umożliwiający urządzeniu pokazywanie czegoś.
@@ -37,8 +37,8 @@ pomysłów:
 
 *Metoda* ``get_presses`` daje nam tylko wartość, a ``display.scroll`` tylko
 wyświetla znaki, więc potrzebujemy jeszcze przetworzyć wartość numeryczną na
-znaki. Robimy to za pomocą funkcji ``str`` (skrót od ang "string" ~ przetwarza
-wszystko na tekst).
+znaki. Robimy to za pomocą funkcji ``str`` (skrót od angielskiego słowa
+"string" ~ przetwarza wszystko na ciąg znaków).
 
 Trzeci wiersz jest jak cebula. Jeżeli przyjmiesz nawiasy za warstwy cebuli, to
 zauważysz, że ``display.scroll`` zawiera ``str``, który zawiera 
@@ -56,11 +56,11 @@ Python widzi pełną linię i dostaje wartość ``get_presses``::
     display.scroll(str(button_a.get_presses()))
 
 Teraz, gdy Python wie już ile razy został wciśnięty przycisk, to przetworzy
-wartość numeryczną na tekst::
+wartość numeryczną na ciąg znaków::
 
     display.scroll(str(10))
 
-No i w końcu Python wie co wyświetlić przewijając na ekranie::
+No i w końcu Python wie, że ma wyświetlić przesuwający się tekst na ekranie::
 
     display.scroll("10")
 
@@ -81,7 +81,7 @@ pętli. Jeżeli jednak nie jest, to przerywa wykonywanie pętli (ignorując zawa
 a wtedy reszta część programu może wykonać się.
 
 Python ułatwia definiowanie bloków kodu. Powiedz, że mam listę rzeczy do
-zrobienia napisaną na kartcie papieru. Pewnie będzie wyglądało to tak::
+zrobienia napisaną na kartce papieru. Pewnie będzie wyglądało to tak::
 
     Zakupy
     Napraw uszkodzoną rynnę
@@ -102,12 +102,14 @@ coś takiego::
         Sprawdź trawnik wokół sadzawki dla żab
         Sprawdź poziom paliwa w kosiarce
 
-It's obvious that the main tasks are broken down into sub-tasks that are
-*indented* underneath the main task to which they are related. So ``Eggs``,
-``Bacon`` and ``Tomatoes`` are obviously related to ``Shopping``. By indenting
-things we make it easy to see, at a glance, how the tasks relate to each other.
+To oczywiste, że główne zadania są podzielone na podrzędne zadania, które
+zaczynają się od *akapitu* (wcięcie) (ang. indent) poniżej głównego zadania, do którego
+są powiązane. Tak więc ``Jaja``, ``Boczek`` i ``Pomidory`` są oczywiście
+związane z zadaniem ``Zakupy``. Wcięcia ułatwiają nam sprawdzanie w jaki sposób
+zadania są powiązane ze sobą.
 
-This is called *nesting*. We use nesting to define blocks of code like this::
+To nazywane jest *zagnieżdżeniem*. Używamy zagnieżdżeń do definicji bloków
+kodu takich jak::
 
     from microbit import *
 
@@ -116,22 +118,22 @@ This is called *nesting*. We use nesting to define blocks of code like this::
 
     display.show(Image.SURPRISED)
 
-The ``running_time`` function returns the number of milliseconds since the
-device started.
+Funkcja ``running_time`` zwraca liczbę milisekund od startu urządzenia.
 
-The ``while running_time() < 10000:`` line checks if the running time is less
-than 10000 milliseconds (i.e. 10 seconds). If it is, *and this is where we can
-see scoping in action*, then it'll display ``Image.ASLEEP``. Notice how this is
-indented underneath the ``while`` statement *just like in our to-do list*.
+Linia ``while running_time() < 10000:`` sprawdza czy czas pracy urządzenia
+jest mniejszy od 10000 milisekund (czyli 10 sekund). Jeżeli tak, *i to jest
+miejsce gdzie możemy zobaczyć skalę działania*, to zostanie wyświetlony
+``Image.ASLEEP``. Zauważ jak to jest wcięte poniżej instrukcji ``while``
+*tak jak na naszej liście zadań*.
 
-Obviously, if the running time is equal to or greater than 10000 milliseconds
-then the display will show ``Image.SURPRISED``. Why? Because the ``while``
-condition will be False (``running_time`` is no longer ``< 10000``). In that
-case the loop is finished and the program will continue after the ``while``
-loop's block of code. It'll look like your device is asleep for 10
-seconds before waking up with a surprised look on its face.
+Oczywiście, jeśli czas pracy jest równy lub większy niż 10000 milisekund,
+wówczas na ekranie pojawi się ``Image.SURPRISED``. Dlaczego? Ponieważ warunek
+``while`` będzie fałszywy (ang. False) (``running_time`` nie jest już ``< 10000``).
+W takim przypadku pętla jest zakończona i program będzie kontynuowany po bloku
+kodu pętli ``while``. Wygląda na to, że twoje urządzenie śpi przez 10 sekund
+zanim obudzi się z zaskoczoną miną na swojej twarzy.
 
-Try it!
+Wypróbuj to!
 
 Handling an Event
 +++++++++++++++++
