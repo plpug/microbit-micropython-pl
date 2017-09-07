@@ -22,83 +22,85 @@ To jest fenomenalnie proste:
 
 Cały skrypt jest uśpiony przez 10 000 milisekund (czyli 10 sekund) a po tym
 czasie na wyświetlaczu przewinie się liczba ilości wciśnięć przycisku 'A'.
-To tyle.
+To wszystko.
 
-While it's a pretty useless script, it introduces a couple of interesting new
-ideas:
+Chociaż ten skrypt jest bezużyteczny, to jednak pokazuje name kilka ciekawych
+pomysłów:
 
-#. The ``sleep`` *function* will make the micro:bit sleep for a certain number
-   of milliseconds. If you want a pause in your program, this is how to do it.
-   A *function* is just like a *method*, but it isn't attached by a dot to an
-   *object*.
-#. There is an object called ``button_a`` and it allows you to get the number
-   of times it has been pressed with the ``get_presses`` *method*.
+#. *Funkcja* ``sleep`` usypia micro:bit na pewną ilość milisekund. Jeżeli
+   chcesz zatrzymać program, to jest sposób w jaki możesz to zrobić.
+   *Funkcja* jest podobna do *metody* ale nie jest przyporządkowana do 
+   *obiektu* za pomocą kropki.
 
-Since ``get_presses`` gives a numeric value and ``display.scroll`` only
-displays characters, we need to convert the numeric value into a string of
-characters. We do this with the ``str`` function (short for "string" ~ it
-converts things into strings of characters).
+#. Istnieje obiekt nazwany ``button_a`` i on pozwala ci pobrać liczbę
+   określającą ilości naciśnięć za pomocą *metody* ``get_presses``.
 
-The third line is a bit like an onion. If the parenthesis are the
-onion skins then you'll notice that ``display.scroll`` contains ``str`` that
-itself contains ``button_a.get_presses``. Python attempts to work out the
-inner-most answer first before starting on the next layer out. This is called
-*nesting* - the coding equivalent of a Russian Matrioshka doll.
+*Metoda* ``get_presses`` daje nam tylko wartość, a ``display.scroll`` tylko
+wyświetla znaki, więc potrzebujemy jeszcze przetworzyć wartość numeryczną na
+znaki. Robimy to za pomocą funkcji ``str`` (skrót od ang "string" ~ przetwarza
+wszystko na tekst).
+
+Trzeci wiersz jest jak cebula. Jeżeli przyjmiesz nawiasy za warstwy cebuli, to
+zauważysz, że ``display.scroll`` zawiera ``str``, który zawiera 
+``button_a.get_presses``. Python próbuje rozpracować najbardziej wewnętrzne
+odpowiedzi najpierw, zanim przejdzie do następnej warstwy. To nazywa się
+*zagnieżdżenie* - programistyczny odpowiednik rosyjskiej lalki - matrioszka.
 
 .. image:: matrioshka.jpg
 
-Let's pretend you've pressed the button 10 times. Here's how Python works out
-what's happening on the third line:
+Przyjmijmy, że nacisnąłeś przycisk 10 razy. Oto jak działa Python, to dzieje
+się w trzeciej linii:
 
-Python sees the complete line and gets the value of ``get_presses``::
+Python widzi pełną linię i dostaje wartość ``get_presses``::
 
     display.scroll(str(button_a.get_presses()))
 
-Now that Python knows how many button presses there have been, it converts the
-numeric value into a string of characters::
+Teraz, gdy Python wie już ile razy został wciśnięty przycisk, to przetworzy
+wartość numeryczną na tekst::
 
     display.scroll(str(10))
 
-Finally, Python knows what to scroll across the display::
+No i w końcu Python wie co wyświetlić przewijając na ekranie::
 
     display.scroll("10")
 
-While this might seem like a lot of work, MicroPython makes this happen
-extraordinarily fast.
+Może ci się wydawać, że to jest mnóstwo pracy ale MicroPython robi to 
+niezwykle szybko.
 
-Event Loops
+Pętle zdarzeń
 +++++++++++
 
-Often you need your program to hang around waiting for something to happen. To
-do this you make it loop around a piece of code that defines how to react to
-certain expected events such as a button press.
+Często potrzebujesz aby program poczekał na coś, co się wydarzy. Aby uzyskać
+to musisz zrobić pętlę dla jakiegoś kawałka kodu, który będzie miał 
+zdefiniowane w jaki sposób zareagować na oczekiwaną reakcję taką, jak
+naciśnięcie przycisku.
 
-To make loops in Python you use the ``while`` keyword. It checks if something
-is ``True``. If it is, it runs a *block of code* called the *body* of the loop.
-If it isn't, it breaks out of the loop (ignoring the body) and the rest of the
-program can continue.
+Aby utworzyć pętle w Pythonie użyj słowa kluczowego ``while``. To sprawdza czy
+coś jest ``True``. Jeżeli tak jest, to uruchamia *blok kodu* zwany *zawartością*
+pętli. Jeżeli jednak nie jest, to przerywa wykonywanie pętli (ignorując zawartość),
+a wtedy reszta część programu może wykonać się.
 
-Python makes it easy to define blocks of code. Say I have a to-do list written
-on a piece of paper. It probably looks something like this::
+Python ułatwia definiowanie bloków kodu. Powiedz, że mam listę rzeczy do
+zrobienia napisaną na kartcie papieru. Pewnie będzie wyglądało to tak::
 
-    Shopping
-    Fix broken gutter
-    Mow the lawn
+    Zakupy
+    Napraw uszkodzoną rynnę
+    Skoś trawnik
 
-If I wanted to break down my to-do list a bit further, I might write something
-like this::
+Gdybym chciał nieco rozbić moją listę rzeczy do zrobienia, to mógłbym napisać
+coś takiego::
 
-    Shopping:
-        Eggs
-        Bacon
-        Tomatoes
-    Fix broken gutter:
-        Borrow ladder from next door
-        Find hammer and nails
-        Return ladder
-    Mow the lawn:
-        Check lawn around pond for frogs
-        Check mower fuel level
+    Zakupy:
+        Jaja
+        Boczek
+        Pomidory
+    Napraw uszkodzoną rynnę:
+        Wyjmij drabinę z sąsiednich drzwi
+        Znajdź młotek i gwoździe
+        Obróć grabinę
+    Skoś trawnik:
+        Sprawdź trawnik wokół sadzawki dla żab
+        Sprawdź poziom paliwa w kosiarce
 
 It's obvious that the main tasks are broken down into sub-tasks that are
 *indented* underneath the main task to which they are related. So ``Eggs``,
