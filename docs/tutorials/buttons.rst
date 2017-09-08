@@ -135,24 +135,26 @@ zanim obudzi się z zaskoczoną miną na swojej twarzy.
 
 Wypróbuj to!
 
-Handling an Event
+Ogsługa zdarzenia
 +++++++++++++++++
 
-If we want MicroPython to react to button press events we should put it into
-an infinite loop and check if the button ``is_pressed``.
+Jeśli chcemy aby MicroPython reagował na zdarzenia naciśnięcia przycisku, to
+powinniśmy umieścić go w nieskończonej pętli i sprawcać, czy przycisk
+``is_pressed``.
 
-An infinite loop is easy::
+Nieskończona pętla jest prosta::
 
     while True:
-        # Do stuff
+        # rób coś
 
-(Remember, ``while`` checks if something is ``True`` to work out if it should
-run its block of code. Since ``True`` is obviously ``True`` for all time, you
-get an infinite loop!)
+(Pamiętaj, że ``while`` sprawdza czy coś jest ``True`` przed każdym wykonaniem
+bloku kodu. Ponieważ ``True`` jest oczywiście ``True`` przez czały czas, to
+otrzymujesz nieskończoną pętlę!)
 
-Let's make a very simple cyber-pet. It's always sad unless you're pressing
-button ``A``. If you press button ``B`` it dies. (I realise this isn't a very
-pleasant game, so perhaps you can figure out how to improve it.)::
+Zróbmy bardzo prosty cyber-zwierzak. Jest on smutny, dopóki nie naciśniesz
+przycisku ``A``. Ale jeżeli naciśniesz przycisk ``B`` on umrze. (Zdaję sobię
+sprawę, że to nie jest zbyt przyjemna gra, więc może masz pomysł jak ją
+ulepszyć.)::
 
     from microbit import *
 
@@ -166,31 +168,34 @@ pleasant game, so perhaps you can figure out how to improve it.)::
 
     display.clear()
 
-Can you see how we check what buttons are pressed? We used ``if``,
-``elif`` (short for "else if") and ``else``. These are called *conditionals*
-and work like this::
+Czy widzisz jak sprawdzamy, jakie przyciski są wciśnięte? Użyliśmy ``if``,
+``elif`` (skrót od "else if") oraz ``else``. Są one nazywane *warunkami* i
+działają tak::
 
-    if something is True:
-        # do one thing
-    elif some other thing is True:
-        # do another thing
+    if coś jest True:
+        # zrób pierwszą rzecz
+    elif coś innego jest True:
+        # zrób następną rzecz
     else:
-        # do yet another thing.
+        # zrób jeszcze coś.
 
-This is remarkably similar to English!
+To jest podobne do języka angielskiego!
 
-The ``is_pressed`` method only produces two results: ``True`` or ``False``.
-If you're pressing the button it returns ``True``, otherwise it returns
-``False``. The code above is saying, in English, "for ever and ever, if
-button A is pressed then show a happy face, else if button B is pressed break
-out of the loop, otherwise display a sad face." We break out of the loop (stop
-the program running for ever and ever) with the ``break`` statement.
+Metoda ``is_pressed`` generuje tylko dwa rezultaty: ``True`` albo ``False``.
+Jeżeli naciśniesz przycisk, to zwróci ``True``, w przeciwnym wypadku zwróci
+``False``. Powyższy kod można przetłumaczyć jako "jeżeli i tylko wtedy gdy
+przycisk A został naciśnięty, to pokaż szczęśliwą twarz, jeżeli przycisk B
+został naciśnięty, to przerwij pętlę, a w przeciwnym wypadku pokaż smutną
+minę." Przerywamy wykonywanie pętli (zatrzymujemy uruchomiony w nieskończoność
+program) za pomocą instrukcji ``braek``.
 
-At the very end, when the cyber-pet is dead, we ``clear`` the display.
+Na samym końcu, kiedy cyber-zwierzak nie żyje, wyczyśćmy ekran metodą
+``clear``.
 
-Can you think of ways to make this game less tragic? How would you check if
-*both* buttons are pressed? (Hint: Python has ``and``, ``or`` and ``not``
-logical operators to help check multiple truth statements (things that
-produce either ``True`` or ``False`` results).
+Czy możesz pomyśleć o sposobie, aby ta gra była mniej tragiczna? Jak chciałbyś
+sprawdzić, czy przyciski *both* zostały naciśnięte? (Podpowiedź: Python ma
+logiczne operatory  ``and``, ``or`` i ``not``, które umożliwiają sprawdzenie
+wielu wyrażeń warunkowych (rzeczy, które generują rezultaty ``True`` albo
+``False``).
 
 .. footer:: The image of Matrioshka dolls is licensed CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=69402
