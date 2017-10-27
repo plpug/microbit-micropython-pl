@@ -42,10 +42,10 @@ wyświetlacza by pokazać przesuwający się tekst 'Hello, world!'". Jeśli meto
 nie potrzebuje żadnych argumentów, musimy to jasno określić używając pustych 
 nawiasów: ``()``.
 
-Skopiuj powyższy kod do swojego edytora i zaprogramuj go (ang. flash) na
-urządzeniu. Czy domyślasz się jak zmienić wyświetlany tekst? Czy możesz
-go zmienić tak, by przywitał ciebie? Na przykład, chciałbym by tekst brzmiał
-"Witaj, Andrzeju!". Mała podpowiedź: musisz zmienić argument metody ``scroll``.
+Skopiuj powyższy kod do swojego edytora i wgraj go (ang. flash) na urządzeniu.
+Czy domyślasz się jak zmienić wyświetlany tekst? Czy możesz go zmienić tak, 
+by przywitał ciebie? Na przykład, chciałbym by tekst brzmiał "Witaj, Andrzeju!". 
+Mała podpowiedź: musisz zmienić argument metody ``scroll``.
 
 .. warning::
 
