@@ -33,7 +33,7 @@ pomysłów:
    *obiektu* za pomocą kropki.
 
 #. Istnieje obiekt nazwany ``button_a`` i on pozwala ci pobrać liczbę
-   określającą ilość naciśnięć za pomocą *metody* ``get_presses``.
+   określającą liczbę naciśnięć za pomocą *metody* ``get_presses``.
 
 *Metoda* ``get_presses`` daje nam tylko liczbę, a ``display.scroll`` przyjmuje
 tylko ciągi znaków. Dlatego musimy zmienić liczbę na ciąg znaków, co możemy
