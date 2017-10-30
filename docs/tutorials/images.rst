@@ -1,25 +1,26 @@
-Images
+Obrazy
 ------
 
-MicroPython is about as good at art as you can be if the only thing you have is
-a 5x5 grid of red LEDs (light emitting diodes - the things that light up on the
-front of the device). MicroPython gives you quite a lot of control over the
-display so you can create all sorts of interesting effects.
+MicroPython jest tak dobry jak to tylko możliwe, jeśli chodzi o sztukę, jeśli
+jedyne czym dysponujesz to macierz 5x5 diód LED (ang. Light Emitting Diodes,
+diody emitujące światło na przodzie urządzenia). MicroPython daje sporo kontroli
+nad wyświetlaczem, zatem możesz uzyskać sporo ciekawych efektów.
 
-MicroPython comes with lots of built-in pictures to show on the display.
-For example, to make the device appear happy you type::
+MicroPython posiada wbudowany zestaw obrazów które może pokazać na wyświetlaczu.
+Na przykład, żeby pokazać na ekranie szczęśliwą bużkę musimy napisać::
 
     from microbit import *
     display.show(Image.HAPPY)
 
-I suspect you can remember what the first line does. The second line uses the
-``display`` object to ``show`` a built-in image. The happy image we want to
-display is a part of the ``Image`` object and called ``HAPPY``. We tell
-``show`` to use it by putting it between the parenthesis (``(`` and ``)``).
+Mam nadzieję, że pamiętasz co robi pierwsza linijka powyżej. Druga linia używa
+obieku ``display`` i metody ``show`` (ang. pokaż) do wyświetlenia obrazka. Buźka
+którą chcemy wyświetlić jest częścią obieku ``Image`` (ang. Obraz) i nazywa się
+``HAPPY`` (ang. szczęśliwy). Mówimy metodzie ``show`` by użyła tego obrazka przez
+podanie jego nazwy w nawiasach (``(`` i ``)``).
 
 .. image:: happy.png
 
-Here's a list of the built-in images:
+Poniżej znajdziesz listę wszystkichh wbudowanych obrazów:
 
     * ``Image.HEART``
     * ``Image.HEART_SMALL``
@@ -71,9 +72,9 @@ Here's a list of the built-in images:
     * ``Image.UMBRELLA``
     * ``Image.SNAKE``
 
-There's quite a lot! Why not modify the code that makes the micro:bit look
-happy to see what some of the other built-in images look like? (Just replace
-``Image.HAPPY`` with one of the built-in images listed above.)
+Jest ich bardzo dużo! Może zmodyfikujesz kod powyżej żeby zobaczyć jak 
+wyglądają pozostałe obrazy? (Wystarczy że zastąpisz ``Image.HAPPY`` jednym
+z innych wbudowanych obrazów które są wypisane powyżej.)
 
 DIY Images
 ++++++++++
