@@ -21,7 +21,7 @@ Jest to niezwykle proste:
     display.scroll(str(button_a.get_presses()))
 
 Cały skrypt jest uśpiony przez 10 000 milisekund (czyli 10 sekund) a po tym
-czasie na wyświetlaczu przewinie się liczba ilości wciśnięć przycisku ``A``.
+czasie na wyświetlaczu przewinie się liczba wciśnięć przycisku ``A``.
 To wszystko.
 
 Chociaż ten skrypt jest bezużyteczny, to jednak pokazuje name kilka ciekawych
@@ -32,7 +32,7 @@ pomysłów:
    *Funkcja* jest podobna do *metody* ale nie jest przyporządkowana do 
    *obiektu* za pomocą kropki.
 
-#. Istnieje obiekt nazwany ``button_a`` i on pozwala ci pobrać liczbę
+#. Istnieje obiekt nazwany ``button_a`` i on pozwala ci pobrać wartość
    określającą liczbę naciśnięć za pomocą *metody* ``get_presses``.
 
 *Metoda* ``get_presses`` daje nam tylko liczbę, a ``display.scroll`` przyjmuje
@@ -72,7 +72,7 @@ Pętle zdarzeń
 
 Często potrzebujesz aby program poczekał na jakieś zdarzenie. Aby uzyskać
 to musisz zamknąć odpowiedni kawałek kodu w pętli, który będzie miał
-zdefiniowane w jaki sposób zareagować na oczekiwane zdarzenie takie, jak
+zdefiniowane w jaki sposób zareagować na oczekiwane zdarzenie takie jak
 naciśnięcie przycisku.
 
 Aby utworzyć pętle w Pythonie użyj słowa kluczowego ``while`` (ang. dopóki). To sprawdza czy
@@ -169,7 +169,7 @@ ulepszyć.)::
     display.clear()
 
 Czy widzisz jak sprawdzamy jakie przyciski są wciśnięte? Użyliśmy ``if`` (ang. jeśli),
-``elif`` (skrót od "else if") (ang. a jednak jeśli) oraz ``else`` (ang. inaczej).
+``elif`` (skrót od "else if") (ang. jeśli jednak) oraz ``else`` (ang. w pozostałych przypadkach).
 Są one nazywane *warunkami* i
 działają tak::
 
@@ -188,7 +188,7 @@ Jeżeli naciśniesz przycisk, to zwróci ``True``, w przeciwnym wypadku zwróci
 przycisk A został naciśnięty, to pokaż szczęśliwą twarz, jeżeli przycisk B
 został naciśnięty, to przerwij pętlę, a w przeciwnym wypadku pokaż smutną
 minę." Przerywamy wykonywanie pętli (zatrzymujemy uruchomiony w nieskończoność
-program) za pomocą instrukcji ``braek``.
+program) za pomocą instrukcji ``break``.
 
 Na samym końcu, kiedy cyber-zwierzak nie żyje, czyścimy ekran metodą
 ``clear``.
