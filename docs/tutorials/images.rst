@@ -76,20 +76,22 @@ Jest ich bardzo dużo! Może zmodyfikujesz kod powyżej żeby zobaczyć jak
 wyglądają pozostałe obrazy? (Wystarczy że zastąpisz ``Image.HAPPY`` jednym
 z innych wbudowanych obrazów które są wypisane powyżej.)
 
-DIY Images
+Obrazy -- Zrób to sam
 ++++++++++
 
-Of course, you want to make your own image to display on the micro:bit, right?
+Naturalnie, na pewno chcesz stworzyć własny obrazek do wyświetlenia, prawda?
 
-That's easy.
+To proste.
 
-Each LED pixel on the physical display can be set to one of ten values. If a
-pixel is set to ``0`` (zero) then it's off. It literally has zero brightness.
-However, if it is set to ``9`` then it is at its brightest level. The values
-``1`` to ``8`` represent the brightness levels between off (``0``) and full on
-(``9``).
+Każda dioda LED (dalej nazywana pixelem) na wyjświetlaczu może przyjąć jedną 
+z dziesięciu wartości. Jeśli pixel jest ustawiony na ``0`` (zero), to znaczy
+że jest wyłączony. Po prostu jasność jest ustawiona na zero, dlatego nie świeci.
+Jeśli jednak podamy wartość ``9`` to ustawiomy najwyższy poziom jasności.
+Wartości od ``1`` do ``8`` reprezentują poziomy jasności między ``0`` (wyłączony)
+do ``9`` (pełna jasność).
 
-Armed with this information, it's possible to create a new image like this::
+Mając powyższe na uwadze, możemy stworzyć własny obrazek w ten sposób:
+
 
     from microbit import *
 
@@ -101,20 +103,19 @@ Armed with this information, it's possible to create a new image like this::
 
     display.show(boat)
 
-(When run, the device should display an old-fashioned "Blue Peter" sailing ship
-with the masts dimmer than the boat's hull.)
+(Kiedy uruchomisz urządzenie, na wyświetlaczu pokaże się łódka z dwoma masztami,
+które będą nieco ciemniejsze od kadłubu.)
 
-Have you figured out how to draw a picture? Have you noticed that each line of
-the physical display is represented by a line of numbers ending in ``:`` and
-enclosed between ``"`` double quotes? Each number specifies a brightness.
-There are five lines of five numbers so it's possible to specify the individual
-brightness for each of the five pixels on each of the five lines on the
-physical display. That's how to create a new image.
+Wiesz już jak tworzyć obrazki? Widzisz jak każda linia wyświetlacza jest
+reprezentowana przez ciąg znaków kończący się ``:`` (dwukropkiem) i zamknięty
+w ``"`` (cudzysłów)? Każda liczba określa jasność. Mamy pięć linii po pięć
+liczb, zatem możemy osobno podać jasność każdemu pixelowi na urządzeniu. Tak
+właśnie tworzy się własne obrazy.
 
-Simple!
+Proste? Proste!
 
-In fact, you don't need to write this over several lines. If you think you can
-keep track of each line, you can rewrite it like this::
+W zasadzie nie musisz podawach tych wartości w kilku liniach. Jeśli będzie to dla
+ciebie czytelne, to możesz wszystkie wartości podać w jednej linii::
 
     boat = Image("05050:05050:05050:99999:09990")
 
