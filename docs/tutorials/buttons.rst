@@ -24,7 +24,7 @@ Ten skrypt śpi przez 10 000 milisekund (czyli 10 sekund), a po tym
 czasie na wyświetlaczu przewinie się liczba wciśnięć przycisku ``A``.
 To wszystko.
 
-Chociaż ten skrypt jest bezużyteczny, to jednak pokazuje name kilka ciekawych
+Chociaż ten skrypt jest bezużyteczny, to jednak pokazuje nam kilka ciekawych
 koncepcji:
 
 #. *Funkcja* ``sleep`` usypia microbit na pewną liczbę milisekund. Jeżeli
@@ -38,7 +38,7 @@ koncepcji:
 *Metoda* ``get_presses`` daje nam tylko liczbę, a ``display.scroll`` przyjmuje
 tylko ciągi znaków. Dlatego musimy zmienić liczbę na ciąg znaków, co możemy
 zrobić za pomocą funkcji ``str`` (skrót od angielskiego słowa
-"string" ~ przetwarza wszystko na ciąg znaków).
+"string"), która przetwarza wszystko na ciąg znaków.
 
 Trzeci wiersz jest jak cebula. Jeżeli przyjmiesz nawiasy za warstwy cebuli, to
 zauważysz, że ``display.scroll`` zawiera ``str``, który zawiera
@@ -70,14 +70,9 @@ niezwykle szybko.
 Pętle zdarzeń
 +++++++++++
 
-Często chcesz aby program poczekał na jakieś zdarzenie. Żeby to uzyskać, musisz
-zamknąć w pętli kawałek kodu definiujący jak reagować na oczekiwane zdarzenia,
-takie jak naciśnięcie przycisku.
-
-Aby uzyskać
-to musisz zamknąć odpowiedni kawałek kodu w pętli, który będzie miał
-zdefiniowane w jaki sposób zareagować na oczekiwane zdarzenie takie jak
-naciśnięcie przycisku.
+Często chcesz aby program poczekał na jakieś zdarzenie. Aby uzyskać to musisz
+zamknąć odpowiedni kawałek kodu w pętli, który będzie miał zdefiniowane w jaki
+sposób zareagować na oczekiwane zdarzenie takie jak naciśnięcie przycisku.
 
 Pętle w Pythonie tworzymy przy użyciu polecania ``while`` (ang. dopóki). Sprawdza ono czy
 coś jest ``True`` (ang. prawdziwe). Jeżeli tak jest, to uruchamia *blok kodu* zwany *ciałem*
@@ -152,11 +147,11 @@ Nieskończona pętla jest prosta::
         # rób coś
 
 (Pamiętaj, że ``while`` sprawdza czy coś jest ``True`` przed każdym wykonaniem
-bloku kodu. Ponieważ ``True`` jest oczywiście ``True`` przez czały czas, to
+bloku kodu. Ponieważ ``True`` jest oczywiście ``True`` przez cały czas, to
 otrzymujesz nieskończoną pętlę!)
 
-Zróbmy bardzo proste elektroniczne zwierzątko. Jest on smutny, gdy nie naciskasz
-przycisku ``A``. A gdy wciśniesz przycisk ``B`` umiera. (Zdaję sobię
+Zróbmy bardzo proste elektroniczne zwierzątko. Jest ono smutne, gdy nie naciskasz
+przycisku ``A``. A gdy wciśniesz przycisk ``B`` umiera. (Zdaję sobie
 sprawę, że to nie jest zbyt przyjemna gra, więc może masz pomysł jak ją
 ulepszyć.)::
 
@@ -192,7 +187,7 @@ Jeżeli przycisk jest wciśnięty, zwraca ``True``, w przeciwnym wypadku zwróci
 przycisk A jest wciśnięty - pokazuj szczęśliwą twarz, jeśli jednak przycisk
 B jest wciśnięty - przerwij pętlę, a w pozostałych przypadkach pokaż smutną
 minę". Przerywamy pętlę (zatrzymując działający przez cały czas program) za
-pomocą instrukcji ``break``.
+pomocą instrukcji ``break`` (ang. przerwij).
 
 Na samym końcu, kiedy elektroniczne zwierzątko nie żyje, czyścimy
 (ang. ``clear``) ekran.
