@@ -70,9 +70,9 @@ niezwykle szybko.
 Pętle zdarzeń
 +++++++++++
 
-Często chcesz aby program poczekał na jakieś zdarzenie. Aby uzyskać to musisz
-zamknąć odpowiedni kawałek kodu w pętli, który będzie miał zdefiniowane w jaki
-sposób zareagować na oczekiwane zdarzenie takie jak naciśnięcie przycisku.
+Często chcesz aby program poczekał na jakieś zdarzenie. Żeby to uzyskać, musisz
+zamknąć w pętli kawałek kodu definiujący jak reagować na oczekiwane zdarzenia,
+takie jak naciśnięcie przycisku.
 
 Pętle w Pythonie tworzymy przy użyciu polecania ``while`` (ang. dopóki). Sprawdza ono czy
 coś jest ``True`` (ang. prawdziwe). Jeżeli tak jest, to uruchamia *blok kodu* zwany *ciałem*
