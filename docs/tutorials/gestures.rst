@@ -32,7 +32,7 @@ używamy pętli ``while``. Wewnątrz *zakresu* pętli aktualny gest jest odczyty
 i podstawiany pod zmienną ``gesture``. Warunek ``if`` sprawdza, czy ``gesture`` 
 jest równa ``"face up"`` (Python używa ``==`` aby sprawdzić równość, pojedynczy
 znak równości ``=`` jest używany do przypisywania - tak samo jak przypisujemy 
-odczyt gestu do objektu ``gesture``). Jeżeli gest jest równy ``"face up"``,
+odczyt gestu do objektu ``gesture``). Jeżeli ``gesture`` jest równa ``"face up"``,
 używamy wyświetlacza do pokazania szczęśliwej miny. W przeciwnym przypadku, 
 urządzenie wyświetli rozzłoszczoną minę.
 
@@ -88,6 +88,6 @@ czyści ekran, czeka przez sekundę (aby urządzenie wyglądało, jakby zastanaw
 twoim pytaniem), a następnie wyświetla losowo wybraną odpowiedź.
 
 Dlaczego by nie spytać, czy jest to najlepszy program kiedykolwiek napisany? Co mógłbyś
-zrobić, aby "oszukać" i uzyskać zawsze pozytywną lub negatywną odpowiedź? (Podpowiedź:
-użyj przycisków).
+zrobić, aby "oszukać" i uzyskać zawsze pozytywną lub negatywną odpowiedź? 
+(Podpowiedź: użyj przycisków).
 
