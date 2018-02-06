@@ -1,4 +1,4 @@
-Network
+Network -x- Sieć
 -------
 
 It is possible to connect devices together to send and receive
@@ -6,14 +6,27 @@ messages to and from each other. This is called a network. A network of
 interconnected networks is called an internet. The Internet is an internet
 of all the internets.
 
+-x- Możemy połączyć urządzenia w celu wymiany wiadomości między
+nimi. Nazywa się to siecią. Sieć połączonych sieci nazywana
+jest internetem. Natomiast Internet łaczy w sobie wszystkie pozostałe
+internety.
+
+
 Networking is hard and this is reflected in the program described below.
 However, the beautiful thing about this project is it contains all the common
 aspects of network programming you need to know about. It's also remarkably
 simple and fun.
 
+-x- Praca w sieci (networking) jest trudna. Można to zaobserwować na
+przykładzie opisanego niżej programu. Jednak niewątpliwą zaletą tego projetku
+jest to, że zawiera on wszystkie rozpowszechione aspekty programowiania sieciowego
+o których powinieneś wiedzieć. W dodatku jest niezwykle prosty i przyjemny w obsłudze.
+
 But first, let's set the scene...
 
-Connection
+-x- Ale zacznijmy od początku...
+
+Connection -x- Połączenie
 ++++++++++
 
 Imagine a network as a series of layers. At the very bottom is the most
@@ -21,10 +34,18 @@ fundamental aspect of communication: there needs to be some sort of way for
 a signal to get from one device to the other. Sometimes this is done via a
 radio connection, but in this example we're simply going to use two wires.
 
+-x- Wyobraźmy sobie sieć jako szereg warstw. Na samym dole mamy najabrdziej
+fundamentalny aspekt komunikacji: musi być jakiś sposób, żeby przekazać sygnał 
+z jednego urządzenia do drugiego. Czasem jest to wykonywane poprzez połączenie radiowe,
+ale w tym przykładzie zwyczajnie użyjemy dwóch przewodów. 
+
 .. image:: network.png
 
 It is upon this foundation that we can build all the other layers in the
 *network stack*.
+
+-x- To właśnie na tym fundamencie możemy układać wszystkie pozostałe warstwy
+naszej *sieci*.
 
 As the diagram shows, blue and red micro:bits are connected via crocodile
 leads. Both use pin 1 for output and pin 2 for input. The output from one
@@ -34,14 +55,26 @@ and the other a speaker (the output). The recording of your voice via your
 microphone is played out of the other person's speaker. If you hold the
 phone the wrong way up, you'll get strange results!
 
+-x- Jak widzimy na rysunku, niebieskie urządzenie micro:bits jest połączone z czerwonym
+za pośrednictwem przewodów krokodylkowych. W obydwu przypadkach wtyk 1 jest wykorzystywany do
+sygnału wyjściowego, natomiast wtyk 2 — wejściowego. Wyjście jednego urządzenia jest
+połączone z wejściem drugiego. Przypomina to słuchawkę telefonu: na jednym jej końcu
+umiejscowiony jest mikrofon (wyjście), na drugim — głośniczek (wejście). Głos zapisany
+za pośrnictwem mikrofonu jest odtwarzany przez głośniczek drugiego urządzenia. Gdybyśmy
+trzymali słuchawkę odwrotnie, mogłoby z tego wyjść coś dziwnego!
+
 It's exactly the same in this instance: you must connect the wires properly!
 
-Signal
+-x- W tym przypadku jest tak samo: konieczne jest poprawne podpięcie przewodów!
+
+Signal -x- Sygnał
 ++++++
 
 The next layer in the *network stack* is the signal. Often this will depend
 upon the characteristics of the connection. In our example it's simply
 digital on and off signals sent down the wires via the IO pins.
+
+-x- Następną warstwą w naszej *sieci* jest sygnał. 
 
 If you remember, it's possible to use the IO pins like this::
 
