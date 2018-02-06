@@ -1,9 +1,13 @@
 Next Steps
+Następne Kroki
 ----------
 
 These tutorials are only the first steps in using MicroPython with the
 BBC micro:bit. A musical analogy: you've got a basic understanding of
 a very simple instrument and confidently play "Three Blind Mice".
+
+Te tutoriale są tylko pierwszymi krokami w używaniu MicroPython-a z BBC micro
+
 
 This is an achievement to build upon.
 
