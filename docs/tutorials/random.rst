@@ -15,7 +15,7 @@ chaosu do twojego kodu. Oto przykładowy kod przewijający na wyświetlaczu loso
     display.scroll(random.choice(names))
 
 Lista (``names``) zawiera siedem imion zdefiniowanych jako łańcuchy znaków.
-Ostatnia linia jest *zagnieżdżona* (the "onion" effect introduced eariler):
+Ostatnia linia jest *zagnieżdżona* (efekt "onion" zaprezentowany wcześniej):
 metoda ``random.choice`` przyjmuje jako argument listę ``names`` oraz zwraca
 jej losowy element. Element ten (lowoso wybrane imię) jest agrumentem dla
 ``display.scroll``.
