@@ -1,5 +1,5 @@
-Input/Output
-------------
+Wejście/Wyjście
+---------------
 
 There are strips of metal along the bottom edge of the BBC micro:bit that make
 it look as if the device has teeth. These are the input/output pins (or I/O pins
