@@ -1,11 +1,12 @@
-Losowość
+Random
 ------
 
-Czasem chcesz pozostawić rzeczy szczęściu, lub odrobinę je pomieszać. Słowem: chcesz, 
-by udządzenie działało losowo.
+Sometimes you want to leave things to chance, or mix it up a little: you want
+the device to act randomly.
 
-MicroPython zawiera moduł ``random``, wprowadzający element losowy oraz odrobinę
-chaosu do twojego kodu. Oto przykładowy kod przewijający na wyświetlaczu losowe imię::
+MicroPython comes with a ``random`` module to make it easy to introduce chance
+and a little chaos into your code. For example, here's how to scroll a random
+name across the display::
 
     from microbit import *
     import random
@@ -20,39 +21,40 @@ metoda ``random.choice`` przyjmuje jako argument listę ``names`` oraz zwraca
 jej losowy element. Element ten (lowoso wybrane imię) jest agrumentem dla
 ``display.scroll``.
 
-Czy możesz zmodyfikować listę tak, by zawierała wybrane przez ciebie imiona?
+Can you modify the list to include your own set of names?
 
-Losowe Liczby
+Random Numbers
 ++++++++++++++
 
-Losowe liczby są bardzo użyteczne. Często używane są w grach. Po cóż innego
-mamy kostki?
+Random numbers are very useful. They're common in games. Why else do we have
+dice?
 
-MicroPython zawiera wiele użtecznych metod powiązanych z losowymi liczbami.
-Oto przykład prostej kości do gry::
+MicroPython comes with several useful random number methods. Here's how to
+make a simple dice::
 
     from microbit import *
     import random
 
     display.show(str(random.randint(1, 6)))
 
-Po każdym restarcie urządzenia wyświetla ono numer z zakresu 1-6. Zaczynasz
-zapoznawać się z *zagnieżdżaniem*. Warto więc tylko zauważyć, że ``random.randint``
-zwraca liczbę całkowitą z przedziału domkniętego pomiędzy dwoma argumentami
-(liczba całkowita nazywana jest integer, stąd nazwa metody). Zauważ, że skoro
-``display.show`` oczekuje znaku alfabetycznego, używamy funkcji ``str`` do zamiany
-numeru na znak (na przykład: ``6`` w ``"6"``).
+Every time the device is reset it displays a number between 1 and 6. You're
+starting to get familiar with *nesting*, so it's important to note that
+``random.randint`` returns a whole number between the two arguments, inclusive
+(a whole number is also called an integer - hence the name of the method).
+Notice that because ``display.show`` expects a character then we use the
+``str`` function to turn the numeric value into a character (we turn, for
+example, ``6`` into ``"6"``).
 
-W wypadku, gdy zawsze potrzebujesz liczny z przedziału pomiędzy ``0`` a ``N``,
-używaj metody ``random.randrange``. Gdy podasz jej pojedynczy argument, zwróci
-losową liczbę całkowitą z przedziału zamkniętego od ``0`` do ``N`` (w
-przeciwieństwie do funkcji ``random.randint``).
+If you know you'll always want a number between ``0`` and ``N`` then use the
+``random.randrange`` method. If you give it a single argument it'll return
+random integers up to, but not including, the value of the argument ``N``
+(this is different to the behaviour of ``random.randint``).
 
-Czasami potrzebujesz liczby z miejscem po przecinku. Nazywamy je liczbami
-*zmiennoprzecinkowymi* i można je uzyskać używając metody ``random.radom``.
-Zwraca ona wartość z przedziału domkniętego od ``0.0`` do ``1.0``. Jeżeli
-potrzebujesz dużej liczby zmiennoprzecinkowej dodaj ``random.randrange`` do
-``random.random``, jak poniżej::
+Sometimes you need numbers with a decimal point in them. These are called
+*floating point* numbers and it's possible to generate such a number with the
+``random.random`` method. This only returns values between ``0.0`` and ``1.0``
+inclusive. If you need larger random floating point numbers add the results
+of ``random.randrange`` and ``random.random`` like this::
 
     from microbit import *
     import random
@@ -60,23 +62,22 @@ potrzebujesz dużej liczby zmiennoprzecinkowej dodaj ``random.randrange`` do
     answer = random.randrange(100) + random.random()
     display.scroll(str(answer))
 
-Pula Chaosu
+Seeds of Chaos
 ++++++++++++++
 
-Losowe liczby generowane przez komputery nie są naprawdę losowe. Zwracają
-jedynie pseudolosowe rezultaty zaczynając od wartości początkowej. Wartość
-początkowa generowana jest na podstawie pseudolosowej wartości, takiej jak
-obecna godzina i/lub odczyty z sensorów sprzętowych.
+The random number generators used by computers are not truly random. They just
+give random like results given a starting *seed* value. The seed is often
+generated from random-ish values such as the current time and/or readings from
+sensors such as the thermometers built into chips.
 
-Czasem chcesz osiągnąć powtarzalne, pseudolosowe zachowanie: odtwarzalne
-źródło losowości. To jakby oczekiwać tych samych, losowych wyników pięciu
-kolejnych rzutów kością.
+Sometimes you want to have repeatable random-ish behaviour: a source of
+randomness that is reproducible. It's like saying that you need the same five
+random values each time you throw a dice.
 
-Można to łatwo osiągnąć ustalając z góry wartość źródłową. Dla danej wartości
-źródłowej generator liczb losowych będzie tworzył tę samą pulę liczb losowych.
-Źródło jest ustawiane poprzez ``random.seed`` jako dowolna liczba całkowita.
-Poniższa wersja programu do rzutu kością poda zawsze ten sam rezultat::
-
+This is easy to achieve by setting the *seed* value. Given a known seed the
+random number generator will create the same set of random numbers. The seed is
+set with ``random.seed`` and any whole number (integer). This version of the
+dice program always produces the same results::
 
     from microbit import *
     import random
@@ -86,5 +87,5 @@ Poniższa wersja programu do rzutu kością poda zawsze ten sam rezultat::
         if button_a.was_pressed():
             display.show(str(random.randint(1, 6)))
 
-Czy dostrzegasz, czemu powyższy program oczekuje wciśnięcia klawisza A, w
-przeciwieństwie do restartu urządzenia z poprzedniego przykładu..?
+Can you work out why this program needs us to press button A instead of reset
+the device as in the first dice example..?
