@@ -15,11 +15,11 @@ name across the display::
 
     display.scroll(random.choice(names))
 
-The list (``names``) contains seven names defined as strings of characters.
-The final line is *nested* (the "onion" effect introduced earlier): the
-``random.choice`` method takes the ``names`` list as an argument and returns
-an item chosen at random. This item (the randomly chosen name) is the argument
-for ``display.scroll``.
+Lista (``names``) zawiera siedem imion zdefiniowanych jako łańcuchy znaków.
+Ostatnia linia jest *zagnieżdżona* (efekt "onion" zaprezentowany wcześniej):
+metoda ``random.choice`` przyjmuje jako argument listę ``names`` oraz zwraca
+jej losowy element. Element ten (lowoso wybrane imię) jest agrumentem dla
+``display.scroll``.
 
 Can you modify the list to include your own set of names?
 
