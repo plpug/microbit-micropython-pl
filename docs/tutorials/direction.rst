@@ -1,5 +1,5 @@
-﻿Kierunek
----------
+Kierunek
+=======
 
 Na urządzeniu BBC micro:bit znajduje się kompas. Jeżeli kiedykolwiek zrobisz
 stację pogodową, możesz użyć micro:bita do sprawdzania kierunku wiatru.
@@ -20,7 +20,7 @@ Urządzenie może również wskazać kierunek północny::
 .. notatka:: 
 
     **Przed dokonaniem pomiaru należy skalibrować urządzenie.** W innym wypadku
-    rezultaty będą niepoprawne. Aby urządzenie zorientowało się w swoim ustawieniu
+    rezultaty będą niepoprawne. Aby urządzenie zorientowało się w swoim ustawienu
     względem pola magnetycznego Ziemi, metoda ``calibration`` uruchamia małą,
     śmieszną grę. 
 
@@ -28,5 +28,5 @@ Urządzenie może również wskazać kierunek północny::
     wyświetlacza nie utworzą koła.
 
 Program używa ``compass.heading`` i, wraz z prostą, acz piękną matematyką,
-`floor division <https://en.wikipedia.org/wiki/Floor_and_ceiling_functions>`_ ``//`` oraz `modulo <https://en.wikipedia.org/wiki/Modulo_operation>`_ ``%``, wyprowadza pozycję wskazówki zegara, po czym wyświetla ją tak,
+`pogłodą i sufitem <https://pl.wikipedia.org/wiki/Pod%C5%82oga_i_sufit>`_ ``//`` oraz `resztą z dzielenia <https://pl.wikipedia.org/wiki/Modulo>`_ ``%``, wyprowadza pozycję wskazówki zegara, po czym wyświetla ją tak,
 by pokazywała mniej więcej północ.
