@@ -81,7 +81,7 @@ Funkcje
 
 .. py:function:: send_bytes(treść wiadomości)
 
-	Wysyła wiadomość składajacą sie z bajtów.
+	Wysyła wiadomość składającą się z bajtów.
 
 .. py:function:: receive_bytes()
 
@@ -93,7 +93,7 @@ Funkcje
 
 .. py:function:: send("treść wiadomości")
 
-	Wysyła wiadomość w postaci ciągu znaków. Jest odpowiednikiem ``send_bytes(bytes(tresc wiadomości, 'utf8'))``, ale z ``b'\x01\x00\x01'`` dodanymi na początku (dla zapewnienia kompatybilności z innymi platformami współpracującymi z micro:bit).
+	Wysyła wiadomość w postaci ciągu znaków. Jest odpowiednikiem ``send_bytes(bytes(treść wiadomości, 'utf8'))``, ale z ``b'\x01\x00\x01'`` dodanymi na początku (dla zapewnienia kompatybilności z innymi platformami współpracującymi z micro:bit).
 
 .. py:function:: receive()
 
