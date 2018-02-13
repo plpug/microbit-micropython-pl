@@ -1,114 +1,81 @@
-Network -x- Sieć
+Sieć
 -------
 
-It is possible to connect devices together to send and receive
-messages to and from each other. This is called a network. A network of
-interconnected networks is called an internet. The Internet is an internet
-of all the internets.
-
--x- Możemy połączyć urządzenia w celu wymiany wiadomości między
+Możemy połączyć urządzenia w celu wymiany wiadomości między
 nimi. Nazywa się to siecią. Sieć połączonych sieci nazywana
-jest internetem. Natomiast Internet łaczy w sobie wszystkie pozostałe
+jest internetem. Natomiast Internet łączy w sobie wszystkie pozostałe
 internety.
 
-
-Networking is hard and this is reflected in the program described below.
-However, the beautiful thing about this project is it contains all the common
-aspects of network programming you need to know about. It's also remarkably
-simple and fun.
-
--x- Praca w sieci (networking) jest trudna. Można to zaobserwować na
-przykładzie opisanego niżej programu. Jednak niewątpliwą zaletą tego projetku
-jest to, że zawiera on wszystkie rozpowszechione aspekty programowiania sieciowego
+Praca w sieci (networking) jest trudna. Można to zaobserwować na
+przykładzie opisanego niżej programu. Jednak niewątpliwą zaletą tego projektu
+jest to, że zawiera on wszystkie rozpowszechnione aspekty programowania sieciowego
 o których powinieneś wiedzieć. W dodatku jest niezwykle prosty i przyjemny w obsłudze.
 
-But first, let's set the scene...
+Ale zacznijmy od początku...
 
--x- Ale zacznijmy od początku...
-
-Connection -x- Połączenie
+Połączenie
 ++++++++++
 
-Imagine a network as a series of layers. At the very bottom is the most
-fundamental aspect of communication: there needs to be some sort of way for
-a signal to get from one device to the other. Sometimes this is done via a
-radio connection, but in this example we're simply going to use two wires.
-
--x- Wyobraźmy sobie sieć jako szereg warstw. Na samym dole mamy najabrdziej
-fundamentalny aspekt komunikacji: musi być jakiś sposób, żeby przekazać sygnał 
+Wyobraźmy sobie sieć jako szereg warstw. Na samym dole mamy najbardziej
+fundamentalny aspekt komunikacji: musi być jakiś sposób, żeby przekazać sygnał
 z jednego urządzenia do drugiego. Czasem jest to wykonywane poprzez połączenie radiowe,
-ale w tym przykładzie zwyczajnie użyjemy dwóch przewodów. 
+ale w tym przykładzie zwyczajnie użyjemy dwóch przewodów.
 
 .. image:: network.png
 
-It is upon this foundation that we can build all the other layers in the
-*network stack*.
-
--x- To właśnie na tym fundamencie możemy układać wszystkie pozostałe warstwy
+To właśnie na tym fundamencie możemy układać wszystkie pozostałe warstwy
 naszej *sieci*.
 
-As the diagram shows, blue and red micro:bits are connected via crocodile
-leads. Both use pin 1 for output and pin 2 for input. The output from one
-device is connected to the input on the other. It's a bit like knowing which
-way round to hold a telephone handset - one end has a microphone (the input)
-and the other a speaker (the output). The recording of your voice via your
-microphone is played out of the other person's speaker. If you hold the
-phone the wrong way up, you'll get strange results!
-
--x- Jak widzimy na rysunku, niebieskie urządzenie micro:bits jest połączone z czerwonym
+Jak widzimy na rysunku, niebieskie urządzenie micro:bits jest połączone z czerwonym
 za pośrednictwem przewodów krokodylkowych. W obydwu przypadkach wtyk 1 jest wykorzystywany do
 sygnału wyjściowego, natomiast wtyk 2 — wejściowego. Wyjście jednego urządzenia jest
 połączone z wejściem drugiego. Przypomina to słuchawkę telefonu: na jednym jej końcu
 umiejscowiony jest mikrofon (wyjście), na drugim — głośniczek (wejście). Głos zapisany
-za pośrnictwem mikrofonu jest odtwarzany przez głośniczek drugiego urządzenia. Gdybyśmy
+za pośrednictwem mikrofonu jest odtwarzany przez głośniczek drugiego urządzenia. Gdybyśmy
 trzymali słuchawkę odwrotnie, mogłoby z tego wyjść coś dziwnego!
 
-It's exactly the same in this instance: you must connect the wires properly!
+W tym przypadku jest tak samo: konieczne jest poprawne podpięcie przewodów!
 
--x- W tym przypadku jest tak samo: konieczne jest poprawne podpięcie przewodów!
-
-Signal -x- Sygnał
+Sygnał
 ++++++
 
-The next layer in the *network stack* is the signal. Often this will depend
-upon the characteristics of the connection. In our example it's simply
-digital on and off signals sent down the wires via the IO pins.
+Następną warstwą w naszej *sieci* jest sygnał. Często zależy on od
+rodzaju połączenia. W naszym przypadku jest to zwykły sygnał wlączenia i
+wyłącznia przekazywany za pośrednictwem wtyków w naszych przewodach.
 
--x- Następną warstwą w naszej *sieci* jest sygnał. 
+Jak już wiemy, wtyki wyjścia/wejścia można wykorzystać w następujący sposób::
 
-If you remember, it's possible to use the IO pins like this::
+    pin1.write_digital(1)  # włącz sygnał
+    pin1.write_digital(0)  # wyłącz sygnał
+    input = pin2.read_digital()  # odczytaj wartość sygnału (1 lub 0)
 
-    pin1.write_digital(1)  # switch the signal on
-    pin1.write_digital(0)  # switch the signal off
-    input = pin2.read_digital()  # read the value of the signal (either 1 or 0)
+ Następnym krokiem będzie opisanie sposobu użycia i kontrolowania sygnału. W tym celu będzie
+ nam potrzebny...
 
-The next step involves describing how to use and handle a signal. For that we
-need a...
-
-Protocol
+Protokół
 ++++++++
 
-If you ever meet the Queen there are expectations about how you ought to
-behave. For example, when she arrives you may bow or curtsey, if she offers her
-hand politely shake it, refer to her as "your majesty" and thereafter as
-"ma'am" and so on. This set of rules is called the royal protocol. A protocol
-explains how to behave given a specific situation (such as meeting the
-Queen). A protocol is pre-defined to ensure everyone understands what's going
-on before a given situation arises.
+Gdybyś kiedyś spotkał się z Królową, musiałbyś sprostać pewnym oczekiwaniom.
+Na przykład, po jej przyjeździe musiałbyś się ukłonić, a gdyby podała ci rękę,
+należałoby kulturalnie ją uścisnąć. Zwracać się do Królowej przyjęto
+per "wasza wysokość", następnie per "proszę pani" itd. Ten zestaw zasad nazywany jest
+Królewskim Protokołem. Protokół wyjaśnia jak zachować się w odpowiedniej sytuacji
+(np. na spotkaniu z Królową). Protokół jest z góry określony w celu zagwarantowania
+jasności sytuacji zanim miałaby ona wystąpić.
 
 .. image:: queen.jpg
 
-It is for this reason that we define and use protocols for communicating
-messages via a computer network. Computers need to agree before hand how to
-send and receive messages. Perhaps the best known protocol is the
-hypertext transfer protocol (HTTP) used by the world wide web.
+Definiujemy i wykorzystujemy protokoły po to, żeby móc przekazywać wiadomości
+za pośrednictwem sieci komputerowych. Komputery muszą z góry uzgodnić, jak
+wysyłać i przyjmować wiadomości. Prawdopodobnie najbardziej znanym protokołem
+jest protokół transmisji hipertekstu (HTTP), wykorzystywany przez sieć www.
 
-Another famous protocol for sending messages (that pre-dates computers) is
-Morse code. It defines how to send character-based messages via on/off signals
-of long or short durations. Often such signals are played as bleeps. Long
-durations are called dashes (``-``) whereas short durations are dots (``.``).
-By combining dashes and dots Morse defines a way to send characters. For
-example, here's how the standard Morse alphabet is defined::
+Innym znanym protokołem wysyłania wiadomości (który istniał jeszcze przed komputerami)
+jest alfabet Morse'a. Określa on sposób wysyłania wiadomości złożonych z liter poprzez
+sygnały o krótkim lub długim czasie trwanie. Często takie sygnały są odtwarzane jako
+dźwięki. Sygnały o długim czasie trwania nazywane są kreskami ("-"), podczas gdy
+te krótkie określane są kropkami ("."). Poprzez połączenie kresek z kropkami Morse
+umożliwia wysyłanie liter. Poniżej zamieszczony jest standardowy alfabet Morsa::
 
     .-    A     ---   J     ...   S     .----  1      ----.  9
     -...  B     -.-   K     -     T     ..---  2      -----  0
@@ -120,63 +87,63 @@ example, here's how the standard Morse alphabet is defined::
     ....  H     --.-  Q     --..  Z     ---..  8
     ..    I     .-.   R
 
-Given the chart above, to send the character "H" the signal is switched on four
-times for a short duration, indicating four dots (``....``). For the letter
-"L" the signal is also switched on four times, but the second signal has a
-longer duration (``.-..``).
+Jak wynika z powyższego wykresu, żeby wysłać literę "H", należy czterokrotnie
+wysłać krótki sygnał, który odpowiada czterem kropkom ("...."). W przypadku
+litery "L" sygnał również jest wysyłany cztery razy, jednak drugie włączenie
+trwa dłużej (".-..").
 
-Obviously, the timing of the signal is important: we need to tell a dot from a
-dash. That's another point of a protocol, to agree such things so everyone's
-implementation of the protocol will work with everyone elses. In this instance
-we'll just say that:
+Oczywiście czas trwania sygnału ma znaczenie: musimy odróżnić kropkę od kreski.
+Na tym polega kolejny cel protokołu — żeby uzgodnić wspólne dla wszystkich zasady
+wdrażania protokołu.
+W tym przypadku powiemy tylko, że:
 
-* A signal with a duration less than 250 milliseconds is a dot.
-* A signal with a duration from 250 milliseconds to less than 500 milliseconds is a dash.
-* Any other duration of signal is ignored.
-* A pause / gap in the signal of greater than 500 milliseconds indicates the end of a character.
+* Sygnał trwający mniej niż 250 milisekund jest kropką.
+* Sygnał trwający od 250 do 499 milisekund jest kreską.
+* Każdy sygnał o innym czasie trwania będzie ignorowany.
+* Przerwa / odstęp między sygnałami, który przekracza 500 milisekund określa koniec litery.
 
-In this way, the sending of a letter "H" is defined as four "on" signals that
-last no longer than 250 milliseconds each, followed by a pause of greater than
-500 milliseconds (indicating the end of the character).
+W ten sposób, wysłanie litery "H" określane jest jako cztery sygnały trwające
+nie więcej niż 250 milisekund każdy, po których następuje przerwa dłuższa
+niż 500 milisekund (określająca koniec litery).
 
-Message
+Wiadomość
 +++++++
 
-We're finally at a stage where we can build a message - a message that actually
-means something to us humans. This is the top-most layer of our *network
-stack*.
+Wreszcie dotarliśmy do chwili, gdy możemy stworzyć wiadomość, która
+ma dla ludzi określone znaczenie. Jest to najwyższa warstwa w
+naszej *sieci*.
 
-Using the protocol defined above I can send the following sequence of signals
-down the physical wire to the other micro:bit::
+Wykorzystując zdefiniowany wyżej protokół, mogę wysłać za pośrednictwem
+przewodu następującą sekwencję sygnałów do innego urządzenia micro:bit::
 
     ...././.-../.-../---/.--/---/.-./.-../-..
 
-Can you work out what it says?
+Czy możesz odczytać te wiadomość?
 
-Application
+Aplikacja
 +++++++++++
 
-It's all very well having a network stack, but you also need a way to
-interact with it - some form of application to send and receive messages.
-While HTTP is interesting *most* people don't know about it and let their
-web-browser handle it - the underlying *network stack* of the world wide web
-is hidden (as it should be).
+Posiadanie sieci jest dobre, jednak potrzebujemy również sposobu, żeby wejść
+z nią w interakcję. Można to zrobić z pomocą aplikacji, która wysyła i przyjmuje
+wiadomości. HTTP jest ciekawe, jednak *większość* ludzi nie wie o nim, pozostawiając
+jego obsługę przeglądarce - sieć leżąca u podstaw sieci ogólnoświatowej
+jest ukryta (tak jak być powinno).
 
-So, what sort of application should we write for the BBC micro:bit? How should
-it work, from the user's point of view?
+A więc, jakiego rodzaju aplikację powinniśmy napisać dla urządzenia BBC micro:bit?
+Jak powinna ona działać, patrząc z perspektywy użytkownika?
 
-Obviously, to send a message you should be able to input dots and dashes (we
-can use button A for that). If we want to see the message we sent or just
-received we should be able to trigger it to scroll across the display (we can
-use button B for that). Finally, this being Morse code, if a speaker is
-attached, we should be able to play the beeps as a form of aural feedback while
-the user is entering their message.
+Żeby wysłać wiadomość, powinniśmy mieć możliwość wprowadzenia kropek i kresek
+(w tym celu możemy wykorzystać przycisk A). Żeby zobaczyć wiadomość, którą wysłaliśmy
+lub otrzymaliśmy, powinniśmy mieć możliwość odtworzenia jej poprzez przewijanie na
+wyświetlaczu (możemy w tym celu wykorzystać przycisk B). Co więcej, jako że jest
+to alfabet Morse'a, jeśli mamy podłączony głośniczek, powinniśmy mieć możliwość
+odtworzenia sygnałów dźwiękowych w chwili gdy użytkownik wprowadza swoją wiadomość.
 
-The End Result
+Efekt końcowy
 ++++++++++++++
 
-Here's the program, in all its glory and annotated with plenty of comments so
-you can see what's going on::
+Poniżej zamieszczony jest program w całej swojej krasie wraz z dużą ilością
+komentarzy, żebyś mógł zobaczyć co się dzieje::
 
     from microbit import *
     import music
