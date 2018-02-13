@@ -1,4 +1,4 @@
-Kierunek
+﻿Kierunek
 ---------
 
 Na urządzeniu BBC micro:bit znajduje się kompas. Jeżeli kiedykolwiek zrobisz
@@ -20,7 +20,7 @@ Urządzenie może również wskazać kierunek północny::
 .. notatka:: 
 
     **Przed dokonaniem pomiaru należy skalibrować urządzenie.** W innym wypadku
-    rezultaty będą niepoprawne. Aby urządzenie zorientowało się w swoim ustawienu
+    rezultaty będą niepoprawne. Aby urządzenie zorientowało się w swoim ustawieniu
     względem pola magnetycznego Ziemi, metoda ``calibration`` uruchamia małą,
     śmieszną grę. 
 
