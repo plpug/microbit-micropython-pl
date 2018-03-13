@@ -119,21 +119,21 @@ ciebie czytelne, to możesz wszystkie wartości podać w jednej linii::
 
     boat = Image("05050:05050:05050:99999:09990")
 
-Animation
-+++++++++
+Animacja
+++++++++
 
-Static images are fun, but it's even more fun to make them move. This is also
-amazingly simple to do with MicroPython ~ just use a list of images!
+Obrazki statyczne są zabawne, ale bardziej zabawne jest ich poruszenie. To też jest
+niesamowicie proste do zrobienia w MicroPython ~ po prostu użyj listy obrazków!
 
-Here is a shopping list::
+Tu jest lista zakupów::
 
-    Eggs
-    Bacon
-    Tomatoes
+    Jaja
+    Boczek
+    Pomidory
 
-Here's how you'd represent this list in Python::
+Oto jak przedstawiłbyś tę listę w Python::
 
-    shopping = ["Eggs", "Bacon", "Tomatoes" ]
+    zakupy = ["Jaja", "Bekon", "Pomidory" ]
 
 I've simply created a list called ``shopping`` and it contains three items.
 Python knows it's a list because it's enclosed in square brackets (``[`` and
@@ -142,9 +142,15 @@ the items are three strings of characters: ``"Eggs"``, ``"Bacon"`` and
 ``"Tomatoes"``. We know they are strings of characters because they're enclosed
 in quotation marks ``"``.
 
-You can store anything in a list with Python. Here's a list of numbers::
+Po prostu utworzyłem listę nazwaną ``zakupy`` i zawiera ona trzy elementy.
+Python wie, że to jest lista ponieważ jest zawarta w kwadratowych nawiasach (``[`` i
+``]``). Elementy w liście są oddzielone przecinkami (``,``) i w tej instancji
+elementy są trzema ciągami znaków: ``"Jaja"``, ``"Bekon"`` i ``"Pomidory"``.
+My wiemy, że są one ciągami znaków ponieważ są zawarte w cudzysłowiu ``"``.
 
-    primes = [2, 3, 5, 7, 11, 13, 17, 19]
+W liście Python możesz przechowywać cokolwiek. Tu jest lista liczb::
+
+    liczby_pierwsze = [2, 3, 5, 7, 11, 13, 17, 19]
 
 
 .. note::
