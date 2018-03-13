@@ -1,21 +1,21 @@
-MicroPython for the BBC micro:bit
+MicroPython dla BBC micro:bit
 =================================
 
-This is the source code for MicroPython running on the BBC micro:bit!
+Oto kod źródłowy MicroPythona działającego na BBC micro:bit!
 
-To get involved with the community subscribe to the microbit@python.org
-mailing list (https://mail.python.org/mailman/listinfo/microbit). You need to
-be a member to post messages.
+By nawiązać kontakt ze społecznością, zasubskryguj listę mailową
+microbit@python.org (https://mail.python.org/mailman/listinfo/microbit). Musisz
+być jej członkiem, by móc wysyłać wiadomości.
 
-Various things are in this repository, including:
-- Source code in source/ and inc/ directories.
-- Example Python programs in the examples/ directory.
-- Tools in the tools/ directory.
+W niniejszym repozytorium znajdują się różne rzeczy, w tym:
+- kod źródowy w katalogach source/ oraz inc/,
+- przykładowe skrypty Pythona w katalogu examples/,
+- narzędzia w katalogu tools/.
 
-The source code is a yotta application and needs yotta to build, along
-with an ARM compiler toolchain (eg arm-none-eabi-gcc and friends).
+Kod źródłowy jest aplikacją yotta i należy go skompilować przy użyciu
+yotta oraz kompilatora ARM (np. arm-none-eabi-gcc i jego przyjaciół).
 
-Ubuntu users can install the needed packages using:
+Użytkownicy Ubuntu mogą uzyskać wszytkie potrzebne pakiety poprzez:
 ```
 sudo add-apt-repository -y ppa:team-gcc-arm-embedded
 sudo add-apt-repository -y ppa:pmiller-opensource/ppa
