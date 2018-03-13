@@ -29,6 +29,7 @@ Są to zabawne nagrody dla szukających "pod maską" i "grzebiących kijem".
 Znajomość Pythona jest cenna: jest to jeden z najbardziej popularnych
 profesjonalnych języków programowania na świecie.
 
-Zaskocz nas swoim kodem! Stwórz rzeczy, które zachwycą nas! Przede wszystkim miłej zabawy!
+Zaskocz nas swoim kodem! Stwórz rzeczy, które zachwycą nas! Przede wszystkim miłej 
+zabawy!
 
 Udanego Hakowania!
