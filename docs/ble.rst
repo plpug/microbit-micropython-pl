@@ -10,10 +10,10 @@ Jest możliwe, że przyszłe wersje urządzenia będą wyposażone w 32 kilobajt
 pamięci RAM, co może już wystarczyć. Dopóki to nie nastąpi, wsparcie dla BLE
 w MicroPythonie jest mało prawdopodobne.
 
-.. notatka::
-    MicroPython obsługuje antenę radiową poprzez moduł ``radio``. Pozwala to
-    użytkownikom na stworzenie prostej, lecz efektywnej bezprzewodowej sieci
-    urządzeń micro:bit.
+.. note::
+    MicroPython daje dostęp do wbudowanego radia poprzez moduł ``radio``.
+    Pozwala to użytkownikom na stworzenie prostej, lecz efektywnej
+    bezprzewodowej sieci urządzeń micro:bit.
 
     Ponadto, protokół używany w module ``radio`` jest znacznie prostszy niż
-    BLE. Jest dzięki temu łatwiejszy w użyciu w aspekcie edukacyjnym.
+    BLE. Jest dzięki temu łatwiejszy w użyciu w edukacji.
