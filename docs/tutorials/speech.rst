@@ -12,7 +12,7 @@ Komputery i roboty, które mówią wydają się bardziej "ludzkie".
 
 Często o tym co komputer właśnie robi dowiadujemy się poprzez graficzny interfejs użytkownika (ang. graphical user interface, GUI). W przypadku BBC micro:bit, GUI to matryca LED 5x5, która pozostawia wiele do życzenia.
 
-Sprawienie, aby micro:bit mówił, jest jednym ze sposobów na wyrażenie informacji  w zabawny, skuteczny i użyteczny sposób. W tym celu zintegrowaliśmy prosty syntezator mowy oparty na odwrotnie zaprojektowanej wersji syntezatora z wczesnych lat '80. Brzmi naprawde uroczo, w stylu "wszyscy ludzie muszą umrzeć".
+Sprawienie, aby micro:bit mówił, jest jednym ze sposobów na wyrażenie informacji  w zabawny, skuteczny i użyteczny sposób. W tym celu zintegrowaliśmy prosty syntezator mowy oparty na odwrotnie zaprojektowanej wersji syntezatora z wczesnych lat '80. Brzmi naprawdę uroczo, w stylu "wszyscy ludzie muszą umrzeć".
 
 Mając to na uwadze, użyjemy syntezatora do stworzenia...
 
@@ -21,7 +21,7 @@ Poezji DALEKów
 
 .. image:: dalek.jpg
 
-Mało kto wie, że DALEKowie lubia poezję - szczególnie limeryki. Szaleją na punkcie wierszy anapestycznych o surowej budowie AABBA. Kto by pomyślał!
+Mało kto wie, że DALEKowie lubią poezję - szczególnie limeryki. Szaleją na punkcie wierszy anapestycznych o surowej budowie AABBA. Kto by pomyślał!
 
 (Jak się niżej dowiemy, to wina Doktora, że, ku irytacji Davrosa, DALEKowie lubią limeryki.)
 
@@ -47,7 +47,7 @@ Jest to urocze, jednak nie jest wystarczająco DALEKowate jak na nasz gust, dlat
 * ``mouth`` (pol. ``usta``) - czy mowa jest przez zaciśnięte zęby czy bardzo wyraźna (0 = smoczek brzuchomówcy, 255 = Foghorn Leghorn)
 * ``throat`` (pol. ``gardło``) - jak spokojny lub napięty jest ton głosu (0 = załamujący się, 255 = totalnie zrelaksowany)
 
-W sumie razem parametry te kontrolują jakość dźwięku - a.k.a. tembr.Szczerze mówiąc, najlepszą drogą do uzyskania porzadanego tembru jest eksperymentowanie, ocena i dostosowanie.
+W sumie razem parametry te kontrolują jakość dźwięku - t.j barwa dźwięku. Szczerze mówiąc, najlepszą drogą do uzyskania porządanej barwy dźwięku jest eksperymentowanie, ocena i dostosowanie.
 
 Aby dostosować ustawienia, przekazujesz je jako argumenty funkcji ``say``. Więcej szczegółów można znaleźć w dokumentacji interfejsu API ``speech``.
 
@@ -61,7 +61,7 @@ Poezja na Żądanie
 Będąc cyborgami, DALEKowie wykorzystują umiejętności robotów do tworzenia poezji
 i okazuje się, że korzystają z algorytmów napisanych w Python, np::
 
-	# Generator pozeji DALEKowej Doktora
+	# Generator poezji DALEKowej Doktora
     import speech
     import random
     from microbit import sleep
@@ -116,9 +116,9 @@ Fonemy
 
 Zauważysz, że funkcja ``say`` nie tłumaczy dokładnie słów na odpowiednie dźwięki. Aby mieć lepszą kontrolę nad rezultatem, użyj fonemów: podstawowej jednostki struktury fonologicznej mowy.
 
-Korzyść z używania fonemow jest taka, że nie musisz wiedzieć jak je przeliterować. Musisz raczej wiedzieć jak się dane slowo wymawia, żeby "przeliterować je" fonetycznie. W języku angielskim ma to duże znaczenie.
+Korzyść z używania fonemow jest taka, że nie musisz wiedzieć jak je przeliterować. Musisz raczej wiedzieć jak się dane słowo wymawia, żeby "przeliterować je" fonetycznie. W języku angielskim ma to duże znaczenie.
 
-Pełna lista fonemów rozumianych przez syntezator mowy znajduje się w dokumentacji API dla mowy. Alternatywnie, zaoszczędź sobie dużo czasu wprowadzając angielskie słowa do funkcji ``translate`` (ang. przetłumacz). Zwróci ona pierwsze przybliżenie fonemów, które wykorzysta do wygenerowania audio. Otrzymany rezultat może zostać ręcznie wyedytowany, żeby poprawić dokładność, fleksję i akcent (tak aby brzmiał bardziej naturalnie).
+Pełna lista fonemów rozumianych przez syntezator mowy znajduje się w dokumentacji API dla mowy. Alternatywnie, zaoszczędź sobie dużo czasu wprowadzając angielskie słowa do funkcji ``translate`` (ang. przetłumacz). Zwróci ona pierwsze przybliżenie fonemów, które wykorzysta do wygenerowania audio. Otrzymany rezultat może zostać ręcznie wy-edytowany, żeby poprawić dokładność, fleksję i akcent (tak aby brzmiał bardziej naturalnie).
 
 Funkcja ``pronounce`` (ang. wymowa) jest używana do wyprowadzania fonemu w następujący sposób::
 
