@@ -17,7 +17,7 @@ Urządzenie może również wskazać kierunek północny::
         needle = ((15 - compass.heading()) // 30) % 12
         display.show(Image.ALL_CLOCKS[needle])
 
-.. notatka:: 
+.. note:: 
 
     **Przed dokonaniem pomiaru należy skalibrować urządzenie.** W innym wypadku
     rezultaty będą niepoprawne. Aby urządzenie zorientowało się w swoim ustawienu
