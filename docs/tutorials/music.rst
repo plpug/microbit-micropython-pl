@@ -1,5 +1,6 @@
 Muzyka
------
+------
+
 MicroPython na BBC micro:bit zawiera bogaty w możliwości moduł muzyka i dźwięk. Dzięki niemu można w prosty sposób zaprogramować BBC micro:bit do wygenerowania 
 dźwięków o wysokim lub niskim tonie. Oczywiście, aby coś usłyszeć trzeba *podłączyć głośniki* - za pomocą krokodylków podłącz pin 0 oraz GND do wejść głośnika. Nie ma znaczenia który zacisk do którego wejścia zostanie podłączony.
 
@@ -7,10 +8,11 @@ dźwięków o wysokim lub niskim tonie. Oczywiście, aby coś usłyszeć trzeba 
 
 .. note::
 
-     Do tego celu nie używaj przetwornika piezolektrycznego, który może generować
+    Do tego celu nie używaj przetwornika piezoelektrycznego, który może generować
     tylko pojedynczy ton.
 
 Zagrajmy coś!::
+
     import music
 
     music.play(music.NYAN)
@@ -45,7 +47,7 @@ MicroPython ma dość dużo wbudowanych melodii. Oto ich kompletna lista:
 Pobierz któryś z przykładowych kodów i odtwórz melodię. Która podoba Ci się najbardziej? Masz pomysł na ich wykorzystanie jako sygnały?
 
 Wolfgang Amadeusz Microbit
-+++++++++++++++++++++++++
+++++++++++++++++++++++++++
 
 Zaprogramowanie swojej własnej melodii jest bardzo łatwe!
 
@@ -53,10 +55,8 @@ Każda nuta ma nazwę (np. ``C#`` lub ``F``), oktawę (określającą jak wysoko
 
 Każda nuta opisywana jest jako ciąg znaków::
 
-    NOTE[octave][:duration]
-czyli 
-	NUTA[oktawa][:długość]
-	
+    NUTA[oktawa][:długość]
+
 Na przykład, ``"A1:4"`` opisuje nutę ``A`` w oktawie numer ``1`` o długości
 ``4``.
 
@@ -71,8 +71,8 @@ któremu MicroPython zagra początek melodii "Panie Janie"::
 
 .. note::
 
-    MicroPython umożliwia zapisywanie takich melodii w uproszczony sposób. Zapamięta oktawę, długość nuty i będzie je wykorzystywał aż do 	wprowadzenia nowych wartości. Dzięki temu powyższy przykład może zostać zapisany tak:
-		
+    MicroPython umożliwia zapisywanie takich melodii w uproszczony sposób. Zapamięta oktawę, długość nuty i będzie je wykorzystywał aż do wprowadzenia nowych wartości. Dzięki temu powyższy przykład może zostać zapisany tak:
+
         import music
 
         tune = ["C4:4", "D", "E", "C", "C", "D", "E", "C", "E", "F", "G:8",
@@ -83,7 +83,7 @@ któremu MicroPython zagra początek melodii "Panie Janie"::
     Zauważ że wartości określające oktawę i czas trwania są wpisywane tylko wtedy, kiedy są zmieniane. Dzięki temu kod jest łatwiejszy zarówno do napisania jak i do odczytania.
 
 Efekty dźwiękowe
-+++++++++++++
+++++++++++++++++
 
 MiroPython umożliwia tworzenie melodii i dźwięków zapisanych inaczej niż nutami. 
 Na przykład dzięki poniższemu kodowi możemy uzyskać efekt syreny policyjnej::
@@ -100,11 +100,9 @@ Na przykład dzięki poniższemu kodowi możemy uzyskać efekt syreny policyjnej
 Zwróć uwagę na to jak polecenie ``music.pitch`` jest w tym przypadku użyte.
 Wymaga podania częstotliwości. Np. częstotliwość o wartości ``440`` jest podobna do częstotliwości jakiegoś koncertu, natomiast ``A`` to częstotliwość odpowiadająca orkiestrze symfonicznej.
 
-W powyższym przykładzie funkcja ``range`` (ang. zakres) jest wykorzystana do  ustalenia zakresu wartości liczbowych. W powyższym przykładzie liczby te definiują wysokość tonu, po kolei: wartość początkową oraz wartość końcową. Jednak interesuje nas tylko co któraś liczba. O tym informuje ostatnia wartość. Tak więc pierwsza funkcja mówi: "dany zbiór ma zawierać co 16-tą liczbę w zakresie od 880 do 1760". Drugi zapis mówi: "zbiór ma zawierać liczby od 1760 do 880 zmniejszające się o 16". W ten sposób uzyskamy zakres częstotliwości, które stopniowo zwiększając się i zmniejszając tworzą dźwięk przypominający syrenę.
+W powyższym przykładzie funkcja ``range`` (ang. zakres) jest wykorzystana do ustalenia zakresu wartości liczbowych. W powyższym przykładzie liczby te definiują wysokość tonu, po kolei: wartość początkową oraz wartość końcową. Jednak interesuje nas tylko co któraś liczba. O tym informuje ostatnia wartość. Tak więc pierwsza funkcja mówi: "dany zbiór ma zawierać co 16-tą liczbę w zakresie od 880 do 1760". Drugi zapis mówi: "zbiór ma zawierać liczby od 1760 do 880 zmniejszające się o 16". W ten sposób uzyskamy zakres częstotliwości, które stopniowo zwiększając się i zmniejszając tworzą dźwięk przypominający syrenę.
 
 Ponieważ dźwięk syreny powinien trwać nieskończenie długo, jest on wpisany
 w niekończącą się pętlę ``while``.
 
 Co ważne, wprowadziliśmy nowy rodzaj pętli wewnątrz pętli "while" (dopóki): pętlę "for" (dla). Opisując je powiedzielibyśmy: "dla każdego elementu w pewnym zbiorze, zrób z nią coś określonego". W kontekście poprzedniego przykładu: " dla każdej częstotliwości w ustalonym zakresie częstotliwości, graj ton o tej częstotliwości przez 6 milisekund". Zauważ wcięcia przy opisie każdej z czynności, które wykonujemy dla danego elementu (mówiliśmy o tym wcześniej). Dzięki temu Python dokładnie wie jaki fragment kodu uruchomić przy danych elementach.
-
-
