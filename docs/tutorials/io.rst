@@ -1,7 +1,7 @@
 Wejście/Wyjście
 ---------------
 
-Na dolnej krawędzi micro:bita znajdują się paski matalu, które sprawiają, że urządzenie wygląda 
+Na dolnej krawędzi micro:bita znajdują się paski metalu, które sprawiają, że urządzenie wygląda
 jakby miało zęby. Są to piny wejścia/wyjścia, w skrócie piny we/wy (ang. input/output - I/O).
 
 .. image:: blue-microbit.png
@@ -11,12 +11,12 @@ Są one oznaczone 0, 1, 2, 3V oraz GND (komputery zawsze zaczynają liczyć od z
 płytkę złącza krawędziowego do urządzenia, będziesz mógł podłączać kabelki również do pozostałych 
 (mniejszych) pinów.
 
-Każdy pin micro:bita jest reprezentowany przez *objekt* o nazwie ``pinN``, gdzie ``N`` jest numerem pinu. 
-Zatem, na przykład, aby zrobić coś z pinem oznaczonym numerem 0 (zero) użyj objektu o nazwie ``pin0``.
+Każdy pin micro:bita jest reprezentowany przez *obiekt* o nazwie ``pinN``, gdzie ``N`` jest numerem pinu.
+Zatem, na przykład, aby zrobić coś z pinem oznaczonym numerem 0 (zero) użyj obiektu o nazwie ``pin0``.
 
 Proste!
 
-Te objekty posiadają różne *metody*, w zależności od tego, do czego dany pin może zostać wykorzystany.
+Te obiekty posiadają różne *metody*, w zależności od tego, do czego dany pin może zostać wykorzystany.
 
 Delikatny Python
 ++++++++++++++++
@@ -33,7 +33,7 @@ W taki oto sposób możesz połaskotać swoje urządzenie, aby je rozśmieszyć:
             display.show(Image.SAD)
 
 Jedną ręką trzymaj urządzenie za pin GND. Następnie, drugą ręką dotknij (lub połaskocz) 
-pin 0 (zero). Powienieneś zobaczyć na wyświetlaczu zmianę z miny smutnej na szczęśliwą!
+pin 0 (zero). Powinieneś zobaczyć na wyświetlaczu zmianę z miny smutnej na szczęśliwą!
 
 To jest tylko bardzo podstawowa forma sprawdzenia działania wejścia. Prawdziwa zabawa
 zaczyna się, gdy do pinów podłączysz obwody oraz inne urządzenia.
