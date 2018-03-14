@@ -96,20 +96,20 @@ i okazuje się, że korzystają z algorytmów napisanych w Python, np::
 
 Jak pokazują komentarze, jest to bardzo prosty model:
 
-* Nazwane fragmenty (`` location``, `` prop``, `` attitude`` itd.) są generowane losowo z predefiniowanych list możliwych wartości. Zwróć uwagę na użycie `` random.choice`` w celu wybrania pojedynczego elementu z listy.
-* Szablon wiersza definiowany jest jako lista zwrotek z "dziurami" (oznaczonymi przez `` {} ``), do których za pomocą metody `` format`` wstawione zostaną nazwane fragmenty.
-* Na koniec, Python wykonuje pętlę nad każdym elementem na liście wypełniaczy poezji i używa `` speech.say`` z ustawieniami głosu DALEKa do recytowania wiersza. Między poszczególnymi liniami wstawiana jest pauza 500 milisekund, ponieważ nawet DALEKowie muszą odetchnąć.
+* Nazwane fragmenty (``location``, ``prop``, ``attitude`` itd.) są generowane losowo z predefiniowanych list możliwych wartości. Zwróć uwagę na użycie ``random.choice`` w celu wybrania pojedynczego elementu z listy.
+* Szablon wiersza definiowany jest jako lista zwrotek z "dziurami" (oznaczonymi przez ``{}``), do których za pomocą metody ``format`` wstawione zostaną nazwane fragmenty.
+* Na koniec, Python wykonuje pętlę nad każdym elementem na liście wypełniaczy poezji i używa ``speech.say`` z ustawieniami głosu DALEKa do recytowania wiersza. Między poszczególnymi liniami wstawiana jest pauza 500 milisekund, ponieważ nawet DALEKowie muszą odetchnąć.
 
 Co ciekawe, oryginalne wytyczne związane z poezją zostały napisane przez
 Davrosa w języku `FORTRAN <https://en.wikipedia.org/wiki/Fortran>`_
 (odpowiedni język DALEKów, gdyż pisany jest TYLKO WIELKIMI LITERAMI). Jednakże
 doktor cofnął się w czasie dokładnie do punktu pomiędzy wprowadzaniem
 `testów jednostkowych <https://pl.wikipedia.org/wiki/Test_jednostkowy>`_ Davros'a i
-`potków wdrożeniowych <https://en.wikipedia.org/wiki/Continuous_delivery>`_
-od chwili gdy go w to wciągnął. W tej chwili był w stanie włożyć interpreter
-MicroPythona do systemu operacyjnego DALEK i powyżej widzisz kod wewnątrz
-banków pamięci DALEKa jako rodzaj długo ukrytego Władcy Czasu
-`Easter Egg <https://en.wikipedia.org/wiki/Easter_egg_(media)>`_ lub
+`potków wdrożeniowych <https://en.wikipedia.org/wiki/Continuous_delivery>`_ .
+W tej chwili był w stanie włożyć interpreter MicroPythona do systemu
+operacyjnego DALEK i powyżej widzisz kod wewnątrz banków pamięci DALEKa jako
+rodzaj długo ukrytego Władcy Czasu
+`Wielkanocne Jajo <https://pl.wikipedia.org/wiki/Easter_egg>`_ lub
 `Rickroll <https://www.youtube.com/watch?v=dQw4w9WgXcQ>`_.
 
 Fonemy
