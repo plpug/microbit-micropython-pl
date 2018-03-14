@@ -1,11 +1,11 @@
 ﻿Losowość
-------
+--------
 
 Czasem chcesz pozostawić rzeczy szczęściu, lub odrobinę je pomieszać. Słowem: chcesz, 
 by urządzenie działało losowo.
 
 MicroPython zawiera moduł ``random``, wprowadzający element losowy oraz odrobinę
-chaosu do twojego kodu. Oto przykładowy kod przewijający na wyświetlaczu losowe imię::
+chaosu do Twojego kodu. Oto przykładowy kod przewijający na wyświetlaczu losowe imię::
 
     from microbit import *
     import random
@@ -15,15 +15,15 @@ chaosu do twojego kodu. Oto przykładowy kod przewijający na wyświetlaczu loso
     display.scroll(random.choice(names))
 
 Lista (``names``) zawiera siedem imion zdefiniowanych jako łańcuchy znaków.
-Ostatnia linia jest *zagnieżdżona* (efekt "onion" zaprezentowany wcześniej):
+Ostatnia linia jest *zagnieżdżona* (efekt "cebuli" zaprezentowany wcześniej):
 metoda ``random.choice`` przyjmuje jako argument listę ``names`` oraz zwraca
 jej losowy element. Element ten (losowo wybrane imię) jest argumentem dla
 ``display.scroll``.
 
-Czy możesz zmodyfikować listę tak, by zawierała wybrane przez ciebie imiona?
+Czy możesz zmodyfikować listę tak, by zawierała wybrane przez Ciebie imiona?
 
 Losowe Liczby
-++++++++++++++
++++++++++++++
 
 Losowe liczby są bardzo użyteczne. Często używane są w grach. Po cóż innego
 mamy kostki?
@@ -36,20 +36,20 @@ Oto przykład prostej kości do gry::
 
     display.show(str(random.randint(1, 6)))
 
-Po każdym restarcie urządzenia wyświetla ono numer z zakresu 1-6. Zaczynasz
-zapoznawać się z *zagnieżdżaniem*. Warto więc tylko zauważyć, że ``random.randint``
-zwraca liczbę całkowitą z przedziału domkniętego pomiędzy dwoma argumentami
+Po każdym restarcie urządzenia, wyświetla ono numer z zakresu 1-6. Zaczynasz
+zapoznawać się z *zagnieżdżaniem*, warto więc zauważyć, że ``random.randint``
+zwraca liczbę całkowitą z podanego przedziału włącznie
 (liczba całkowita nazywana jest integer, stąd nazwa metody). Zauważ, że skoro
 ``display.show`` oczekuje znaku alfabetycznego, używamy funkcji ``str`` do zamiany
-numeru na znak (na przykład: ``6`` w ``"6"``).
+numeru na znak (na przykład: ``6`` na ``"6"``).
 
 W wypadku, gdy zawsze potrzebujesz liczny z przedziału pomiędzy ``0`` a ``N``,
 używaj metody ``random.randrange``. Gdy podasz jej pojedynczy argument, zwróci
-losową liczbę całkowitą z przedziału zamkniętego od ``0`` do ``N`` (w
+losową liczbę całkowitą z przedziału od ``0`` do ``N`` włącznie (w
 przeciwieństwie do funkcji ``random.randint``).
 
 Czasami potrzebujesz liczby z miejscem po przecinku. Nazywamy je liczbami
-*zmiennoprzecinkowymi* i można je uzyskać używając metody ``random.radom``.
+*zmiennoprzecinkowymi* i można je uzyskać używając metody ``random.random``.
 Zwraca ona wartość z przedziału domkniętego od ``0.0`` do ``1.0``. Jeżeli
 potrzebujesz dużej liczby zmiennoprzecinkowej dodaj ``random.randrange`` do
 ``random.random``, jak poniżej::
@@ -61,7 +61,7 @@ potrzebujesz dużej liczby zmiennoprzecinkowej dodaj ``random.randrange`` do
     display.scroll(str(answer))
 
 Ziarno Chaosu
-++++++++++++++
++++++++++++++
 
 Losowe liczby generowane przez komputery nie są naprawdę losowe. Zwracają
 jedynie pseudolosowe rezultaty zaczynając od ziarna. Wartość ziarna
