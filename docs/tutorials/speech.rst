@@ -1,23 +1,23 @@
 Mowa
-------
+----
 
 .. warning::
 
-	UWAGA! TO JEST KOD ALFA!
+    UWAGA! TO JEST KOD ALFA!
 
-	Zastrzegamy sobie prawo do zmiany tego interfejsu API w miarę rozwoju 	oprogramowania.
+    Zastrzegamy sobie prawo do zmiany tego interfejsu API w miarę rozwoju oprogramowania.
 
-	Jakość mowy nie jest świetna, tylko "wystarczająco dobra". Ze względu na 	ograniczenia urządzenia, mogą wystąpić błędy pamięci 	i / lub nieoczekiwane 	dodatkowe dźwięki podczas odtwarzania. To są dopiero początki i cały czas 	poprawiamy kod syntezatora mowy. Zgłaszanie błędów będzie mile widziane.
+    Jakość mowy nie jest świetna, tylko "wystarczająco dobra". Ze względu na ograniczenia urządzenia, mogą wystąpić błędy pamięci i / lub nieoczekiwane dodatkowe dźwięki podczas odtwarzania. To są dopiero początki i cały czas poprawiamy kod syntezatora mowy. Zgłaszanie błędów będzie mile widziane.
 Komputery i roboty, które mówią wydają się bardziej "ludzkie".
 
 Często o tym co komputer właśnie robi dowiadujemy się poprzez graficzny interfejs użytkownika (ang. graphical user interface, GUI). W przypadku BBC micro:bit, GUI to matryca LED 5x5, która pozostawia wiele do życzenia.
 
-Sprawienie, aby micro:bit mówił, jest jednym ze sposobów na wyrażenie informacji  w zabawny, skuteczny i użyteczny sposób. W tym celu zintegrowaliśmy prosty syntezator mowy oparty na odwrotnie zaprojektowanej wersji syntezatora z wczesnych lat '80. Brzmi naprawdę uroczo, w stylu "wszyscy ludzie muszą umrzeć".
+Sprawienie, aby micro:bit mówił, jest jednym ze sposobów na wyrażenie informacji w zabawny, skuteczny i użyteczny sposób. W tym celu zintegrowaliśmy prosty syntezator mowy oparty na odwrotnie zaprojektowanej wersji syntezatora z wczesnych lat '80. Brzmi naprawdę uroczo, w stylu "wszyscy ludzie muszą umrzeć".
 
 Mając to na uwadze, użyjemy syntezatora do stworzenia...
 
 Poezji DALEKów
-++++++++++++
+++++++++++++++
 
 .. image:: dalek.jpg
 
@@ -28,7 +28,7 @@ Mało kto wie, że DALEKowie lubią poezję - szczególnie limeryki. Szaleją na
 W każdym razie, zamierzamy stworzyć recital poezji DALEKowej na żądanie.
 
 Powiedz coś
-+++++++++++++
++++++++++++
 
 Zanim urządzenie będzie mogło mówić, musisz podłączyć głośniczek w taki sposób:
 
@@ -56,17 +56,17 @@ Po kilku przeprowadzonych eksperymentach, ten brzmi całkiem DALEKowato::
     speech.say("I am a DALEK - EXTERMINATE", speed=120, pitch=100, throat=100, mouth=200)
 
 Poezja na Żądanie
-++++++++++++++++
++++++++++++++++++
 
 Będąc cyborgami, DALEKowie wykorzystują umiejętności robotów do tworzenia poezji
 i okazuje się, że korzystają z algorytmów napisanych w Python, np::
 
-	# Generator poezji DALEKowej Doktora
+    # Generator poezji DALEKowej Doktora
     import speech
     import random
     from microbit import sleep
 
-	# Losowo wybierz fragmenty do wstawienia do szablonu.
+    # Losowo wybierz fragmenty do wstawienia do szablonu.
     location = random.choice(["brent", "trent", "kent", "tashkent"])
     action = random.choice(["wrapped up", "covered", "sang to", "played games with"])
     obj = random.choice(["head", "hand", "dog", "foot"])
@@ -89,7 +89,7 @@ i okazuje się, że korzystają z algorytmów napisanych w Python, np::
         "EXTERMINATE",
     ]
 
-	# Wprowadź w pętlę każdą linię wiersza i użyj modułu
+    # Wprowadź w pętlę każdą linię wiersza i użyj modułu
     for line in poem:
         speech.say(line, speed=120, pitch=100, throat=100, mouth=200)
         sleep(500)
@@ -100,19 +100,19 @@ Jak pokazują komentarze, jest to bardzo prosty model:
 * Szablon wiersza definiowany jest jako lista zwrotek z "dziurami" (oznaczonymi przez `` {} ``), do których za pomocą metody `` format`` wstawione zostaną nazwane fragmenty.
 * Na koniec, Python wykonuje pętlę nad każdym elementem na liście wypełniaczy poezji i używa `` speech.say`` z ustawieniami głosu DALEKa do recytowania wiersza. Między poszczególnymi liniami wstawiana jest pauza 500 milisekund, ponieważ nawet DALEKowie muszą odetchnąć.
 
-Co ciekawe, oryginalne wytyczne związane z poezją zostały napisane przez Davrosa  w języku `FORTRAN <https://en.wikipedia.org/wiki/Fortran>`_ (odpowiedni język DALEKów, gdyż pisany jest TYLKO WIELKIMI LITERAMI). Jednakże Doktor cofnął się w czasie dokładnie do punktu pomiędzy wprowadzeniem 'testów jednostkowych Davrosa <https://en.wikipedia.org/wiki/Unit_testing>`_ .  However, The
-Doctor went back in time to precisely the point between Davros's
-`unit tests <https://en.wikipedia.org/wiki/Unit_testing>`_
-passing and the
+Co ciekawe, oryginalne wytyczne związane z poezją zostały napisane przez Davrosa w języku `FORTRAN <https://en.wikipedia.org/wiki/Fortran>`_ (odpowiedni język DALEKów, gdyż pisany jest TYLKO WIELKIMI LITERAMI). Jednakże Doktor cofnął się w czasie dokładnie do punktu pomiędzy wprowadzeniem 'testów jednostkowych Davrosa <https://en.wikipedia.org/wiki/Unit_testing>`_ . However, The
+
+Doktor cofnął się w czasie dokładnie do punktu, w którym minął Davros'a
+`unit tests <https://en.wikipedia.org/wiki/Unit_testing>`_ i
 `deployment pipeline <https://en.wikipedia.org/wiki/Continuous_delivery>`_
-kicking in. At this instant he was able to insert a MicroPython interpreter
-into the DALEK operating system and the code you see above into the DALEK
-memory banks as a sort of long hidden Time-Lord
-`Easter Egg <https://en.wikipedia.org/wiki/Easter_egg_(media)>`_ or
+od chwili gdy go w to wciągnął. W tej chwili był w stanie włożyć interpreter
+MicroPythona do systemu operacyjnego DALEK i powyżej widzisz kod wewnątrz
+banków pamięci DALEKa jako rodzaj długo ukrytego Władcy Czasu
+`Easter Egg <https://en.wikipedia.org/wiki/Easter_egg_(media)>`_ lub
 `Rickroll <https://www.youtube.com/watch?v=dQw4w9WgXcQ>`_.
 
 Fonemy
-++++++++
+++++++
 
 Zauważysz, że funkcja ``say`` nie tłumaczy dokładnie słów na odpowiednie dźwięki. Aby mieć lepszą kontrolę nad rezultatem, użyj fonemów: podstawowej jednostki struktury fonologicznej mowy.
 
@@ -127,7 +127,7 @@ Funkcja ``pronounce`` (ang. wymowa) jest używana do wyprowadzania fonemu w nast
 Jak udoskonaliłbyś kod Doktora, aby używał fonemów?
 
 Zaśpiewaj piosenkę Micro:bit'a
-++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
 
 Poprzez zmianę ustawień ``pitch`` (ang. ton) i wywołanie funkcji ``sing`` (ang. śpiewaj), urządzenie może zacząć śpiewać (jednakże bez szans na wygranie Eurowizji, póki co).
 
