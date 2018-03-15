@@ -90,8 +90,7 @@ Jeśli jednak podamy wartość ``9`` to ustawiamy najwyższy poziom jasności.
 Wartości od ``1`` do ``8`` reprezentują poziomy jasności między ``0`` (wyłączony)
 do ``9`` (pełna jasność).
 
-Mając powyższe na uwadze, możemy stworzyć własny obrazek w ten sposób:
-
+Mając powyższe na uwadze, możemy stworzyć własny obrazek w ten sposób::
 
     from microbit import *
 
@@ -150,7 +149,7 @@ W liście Python możesz przechowywać cokolwiek. Tu jest lista liczb::
     Liczby nie potrzebują być w cudzysłowie dopóki reprezentują wartość (w przeciwieństwie
     do ciągów znaków). Jest różnica pomiędzy ``2`` (numeryczna wartość 2) i ``"2"``
     (znak/cyfra reprezentująca liczbę 2). Nie martw się jeżeli nie widzisz w
-    tym sensu teraz. Z czasem przyzwyczaisz się do tych różnic.
+    tym sensu teraz. Z czasem będzie to dla Ciebie oczywiste.
 
 Jest nawet możliwe przechowywanie różnych rodzajów rzeczy w tej samej liście::
 
