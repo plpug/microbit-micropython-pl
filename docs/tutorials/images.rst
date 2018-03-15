@@ -2,25 +2,25 @@ Obrazy
 ------
 
 MicroPython jest tak dobry jak to tylko możliwe, jeśli chodzi o sztukę, jeśli
-jedyne czym dysponujesz to macierz 5x5 diód LED (ang. Light Emitting Diodes,
+jedyne czym dysponujesz to macierz 5x5 diod LED (ang. Light Emitting Diodes,
 diody emitujące światło na przodzie urządzenia). MicroPython daje sporo kontroli
 nad wyświetlaczem, zatem możesz uzyskać sporo ciekawych efektów.
 
 MicroPython posiada wbudowany zestaw obrazów które może pokazać na wyświetlaczu.
-Na przykład, żeby pokazać na ekranie szczęśliwą bużkę musimy napisać::
+Na przykład, żeby pokazać na ekranie szczęśliwą buźkę musimy napisać::
 
     from microbit import *
     display.show(Image.HAPPY)
 
 Mam nadzieję, że pamiętasz co robi pierwsza linijka powyżej. Druga linia używa
-obieku ``display`` i metody ``show`` (ang. pokaż) do wyświetlenia obrazka. Buźka
-którą chcemy wyświetlić jest częścią obieku ``Image`` (ang. Obraz) i nazywa się
+obiektu ``display`` i metody ``show`` (ang. pokaż) do wyświetlenia obrazka. Buźka
+którą chcemy wyświetlić jest częścią obiektu ``Image`` (ang. Obraz) i nazywa się
 ``HAPPY`` (ang. szczęśliwy). Mówimy metodzie ``show`` by użyła tego obrazka przez
 podanie jego nazwy w nawiasach (``(`` i ``)``).
 
 .. image:: happy.png
 
-Poniżej znajdziesz listę wszystkichh wbudowanych obrazów:
+Poniżej znajdziesz listę wszystkich wbudowanych obrazów:
 
     * ``Image.HEART``
     * ``Image.HEART_SMALL``
@@ -83,10 +83,10 @@ Naturalnie, na pewno chcesz stworzyć własny obrazek do wyświetlenia, prawda?
 
 To proste.
 
-Każda dioda LED (dalej nazywana pixelem) na wyjświetlaczu może przyjąć jedną 
-z dziesięciu wartości. Jeśli pixel jest ustawiony na ``0`` (zero), to znaczy
+Każda dioda LED (dalej nazywana pikselem) na wyświetlaczu może przyjąć jedną
+z dziesięciu wartości. Jeśli piksel jest ustawiony na ``0`` (zero), to znaczy
 że jest wyłączony. Po prostu jasność jest ustawiona na zero, dlatego nie świeci.
-Jeśli jednak podamy wartość ``9`` to ustawiomy najwyższy poziom jasności.
+Jeśli jednak podamy wartość ``9`` to ustawiamy najwyższy poziom jasności.
 Wartości od ``1`` do ``8`` reprezentują poziomy jasności między ``0`` (wyłączony)
 do ``9`` (pełna jasność).
 
@@ -104,17 +104,17 @@ Mając powyższe na uwadze, możemy stworzyć własny obrazek w ten sposób:
     display.show(boat)
 
 (Kiedy uruchomisz urządzenie, na wyświetlaczu pokaże się łódka z dwoma masztami,
-które będą nieco ciemniejsze od kadłubu.)
+które będą nieco ciemniejsze od kadłuba.)
 
 Wiesz już jak tworzyć obrazki? Widzisz jak każda linia wyświetlacza jest
 reprezentowana przez ciąg znaków kończący się ``:`` (dwukropkiem) i zamknięty
 w ``"`` (cudzysłów)? Każda liczba określa jasność. Mamy pięć linii po pięć
-liczb, zatem możemy osobno podać jasność każdemu pixelowi na urządzeniu. Tak
+liczb, zatem możemy osobno podać jasność każdemu pikselowi na urządzeniu. Tak
 właśnie tworzy się własne obrazy.
 
 Proste? Proste!
 
-W zasadzie nie musisz podawach tych wartości w kilku liniach. Jeśli będzie to dla
+W zasadzie nie musisz podawać tych wartości w kilku liniach. Jeśli będzie to dla
 ciebie czytelne, to możesz wszystkie wartości podać w jednej linii::
 
     boat = Image("05050:05050:05050:99999:09990")
@@ -135,60 +135,52 @@ Oto jak przedstawiłbyś tę listę w Python::
 
     zakupy = ["Jaja", "Bekon", "Pomidory" ]
 
-I've simply created a list called ``shopping`` and it contains three items.
-Python knows it's a list because it's enclosed in square brackets (``[`` and
-``]``). Items in the list are separated by a comma (``,``) and in this instance
-the items are three strings of characters: ``"Eggs"``, ``"Bacon"`` and
-``"Tomatoes"``. We know they are strings of characters because they're enclosed
-in quotation marks ``"``.
-
 Po prostu utworzyłem listę nazwaną ``zakupy`` i zawiera ona trzy elementy.
 Python wie, że to jest lista ponieważ jest zawarta w kwadratowych nawiasach (``[`` i
 ``]``). Elementy w liście są oddzielone przecinkami (``,``) i w tej instancji
 elementy są trzema ciągami znaków: ``"Jaja"``, ``"Bekon"`` i ``"Pomidory"``.
-My wiemy, że są one ciągami znaków ponieważ są zawarte w cudzysłowiu ``"``.
+My wiemy, że są one ciągami znaków ponieważ są zawarte w cudzysłowie ``"``.
 
 W liście Python możesz przechowywać cokolwiek. Tu jest lista liczb::
 
-    liczby_pierwsze = [2, 3, 5, 7, 11, 13, 17, 19]
-
+    primes = [2, 3, 5, 7, 11, 13, 17, 19]
 
 .. note::
 
-    Numbers don't need to be quoted since they represent a value (rather than a
-    string of characters). It's the difference between ``2`` (the numeric value
-    2) and ``"2"`` (the character/digit representing the number 2). Don't worry
-    if this doesn't make sense right now. You'll soon get used to it.
+    Liczby nie potrzebują być w cudzysłowie dopóki reprezentują wartość (w przeciwieństwie
+    do ciągów znaków). Jest różnica pomiędzy ``2`` (numeryczna wartość 2) i ``"2"``
+    (znak/cyfra reprezentująca liczbę 2). Nie martw się jeżeli nie widzisz w
+    tym sensu teraz. Z czasem przyzwyczaisz się do tych różnic.
 
-It's even possible to store different sorts of things in the same list::
+Jest nawet możliwe przechowywanie różnych rodzajów rzeczy w tej samej liście::
 
     mixed_up_list = ["hello!", 1.234, Image.HAPPY]
 
-Notice that last item? It was an image!
+Zwróć uwagę na ostatni element? To był obrazek!
 
-We can tell MicroPython to animate a list of images. Luckily we have a
-couple of lists of images already built in. They're called ``Image.ALL_CLOCKS``
-and ``Image.ALL_ARROWS``::
+Możemy powiedzieć MicroPythonowi aby animował listę obrazków. Szczęśliwie mamy
+już kilka wbudowanych list obrazków. Są to ``Image.ALL_CLOCKS`` i
+``Image.ALL_ARROWS``::
 
     from microbit import *
 
     display.show(Image.ALL_CLOCKS, loop=True, delay=100)
 
-As with a single image, we use ``display.show`` to show it on the
-device's display. However, we tell MicroPython to use ``Image.ALL_CLOCKS`` and
-it understands that it needs to show each image in the list, one after the
-other. We also tell MicroPython to keep looping over the list of images (so
-the animation lasts forever) by saying ``loop=True``. Furthermore, we tell it
-that we want the delay between each image to be only 100 milliseconds (a tenth
-of a second) with the argument ``delay=100``.
+Używamy ``display.show`` do pokazania listy obrazków na ekranie urządzenia
+tak, jak w przypadku pojedynczego obrazka. Jednak mówimy MicroPythonowi użyj
+``Image.ALL_CLOCKS`` i on rozumie, że potrzebuje pokazać każdy obrazek z listy
+jeden po drugim. Mówimy też MicroPythonowi aby użył pętli dla listy obrazków
+(tak więc animacja trwa nieskończenie) przez ``loop=True``. Ponadto mówimy
+jemu, że chcemy aby opóźnienia pomiędzy każdym obrazkiem były tylko 100
+milisekund (0,1 sekundy) w argumencie ``delay=100``.
 
-Can you work out how to animate over the ``Image.ALL_ARROWS`` list? How do you
-avoid looping forever (hint: the opposite of ``True`` is ``False`` although
-the default value for ``loop`` is ``False``)? Can you change the speed of the
-animation?
+Czy możesz domyślić się jak animować obrazki z listy ``Image.ALL_ARROWS``?
+Jak możesz uniknąć nieskończonego powtarzania (podpowiedź: przeciwieństwem do
+``True`` (ang. prawdziwy) jest ``False`` (ang. fałszywy) chociaż domyślna
+wartość dla ``loop`` jest ``False``)? Czy potrafisz zmienić prędkość animacji?
 
-Finally, here's how to create your own animation. In my example I'm going to
-make my boat sink into the bottom of the display::
+Ostatecznie tu jest jak utworzyć swoją własną animację. W moim przykładzie
+zamierzam stworzyć tonącą łódź na ekranie::
 
     from microbit import *
 
@@ -231,12 +223,12 @@ make my boat sink into the bottom of the display::
     all_boats = [boat1, boat2, boat3, boat4, boat5, boat6]
     display.show(all_boats, delay=200)
 
-Here's how the code works:
+A tak działa ten kod:
 
-* I create six ``boat`` images in exactly the same way I described above.
-* Then, I put them all into a list that I call ``all_boats``.
-* Finally, I ask ``display.show`` to animate the list with a delay of 200 milliseconds.
-* Since I've not set ``loop=True`` the boat will only sink once (thus making my animation scientifically accurate). :-)
+* Utworzyłem sześć ``boat`` (ang. łódź) obrazków w dokładnie ten sam sposób, jak opisałem powyżej.
+* Potem umieściłem wszystkie na liście, którą nazwałem ``all_boats``.
+* W końcu poprosiłem ``display.show`` o animację listy z opóźnieniem 200 milisekund.
+* Ponieważ nie użyłem ``loop=True`` łódź utonie tylko raz (to tworzy moją animację naukowo poprawną). :-)
 
-What would you animate? Can you animate special effects? How would you make an
-image fade out and then fade in again?
+Co chciałbyś animować? Czy chciałbyś animować efekty specjalne? Jak chciałbyś
+zrobić aby obrazek znikał, a potem pojawiał się znowu?
