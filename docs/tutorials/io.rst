@@ -41,13 +41,13 @@ zaczyna się, gdy do pinów podłączysz obwody oraz inne urządzenia.
 Piski i buczenia
 ++++++++++++++++
 
-Najprostszym urządzeniem, które możemy podłączyć do naszego urządzenia 
-jest brzęczyk piezoelektryczny. Użyjemy go jako urządzenia wyjścia.
+Najprostszą rzeczą, które możemy podłączyć do naszego urządzenia
+jest brzęczyk piezoelektryczny. Użyjemy go jako wyjście.
 
 .. image:: piezo_buzzer.jpg
 
 To małe urządzenie wydaje wysoki dźwięk, kiedy zostanie podłączone do obwodu. Aby podłączyć 
-go do swojego micro:bita, możesz przypiąć krokodylki do pinu 0 oraz GND 
+je do swojego micro:bita, możesz przypiąć krokodylki do pinu 0 oraz GND
 (jak widać na poniższym obrazku).
 
 .. image:: pin0-gnd.png
