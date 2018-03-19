@@ -1,14 +1,14 @@
 Muzyka
 ------
 
-MicroPython na BBC micro:bit zawiera bogaty w możliwości moduł muzyka i dźwięk. Dzięki niemu można w prosty sposób zaprogramować BBC micro:bit do wygenerowania 
-dźwięków o wysokim lub niskim tonie. Oczywiście, aby coś usłyszeć trzeba *podłączyć głośniki* - za pomocą krokodylków podłącz pin 0 oraz GND do wejść głośnika. Nie ma znaczenia który zacisk do którego wejścia zostanie podłączony.
+MicroPython na BBC micro:bit zawiera bogaty w możliwości moduł muzyki i dźwięku. Dzięki niemu można w prosty sposób zaprogramować BBC micro:bit do wygenerowania
+piśnięć i innych odgłosów. Oczywiście, aby coś usłyszeć trzeba *podłączyć głośniki* -- za pomocą krokodylków podłącz pin 0 oraz GND do wejść głośnika. Nie ma znaczenia który zacisk do którego wejścia zostanie podłączony.
 
 .. image:: pin0-gnd.png
 
 .. note::
 
-    Do tego celu nie używaj przetwornika piezoelektrycznego, który może generować
+    Do tego celu nie używaj brzęczyka piezoelektrycznego, który może generować
     tylko pojedynczy ton.
 
 Zagrajmy coś!::
@@ -18,7 +18,7 @@ Zagrajmy coś!::
     music.play(music.NYAN)
 
 Zauważ, że importujemy moduł ``music``. Zawiera on polecenia wykorzystywane do
-wytwarzania i zarządzania dźwiękiem.
+wytwarzania i kontrolowania dźwięków.
 
 MicroPython ma dość dużo wbudowanych melodii. Oto ich kompletna lista:
 
@@ -51,7 +51,7 @@ Wolfgang Amadeusz Microbit
 
 Zaprogramowanie swojej własnej melodii jest bardzo łatwe!
 
-Każda nuta ma nazwę (np. ``C#`` lub ``F``), oktawę (określającą jak wysoko lub nisko dźwięk ma być grany) oraz długość (przez jaki czas dźwięk ma być grany). Oktawy są oznaczone liczbami ~ 0 oznacza najniższą oktawę, oktawa 4 zawiera środkowe C, a 8 jest tak wysoko, że wyższej już nie będziesz potrzebować, chyba że zechcesz tworzyć muzykę dla psów. Długość dźwięku jest również wyrażana jako liczby. Im większa liczba tym dłużej nuta będzie odtwarzana. Te wielkości są od siebie zależne, np. po wprowadzeniu wartości ``4``, nuta będzie odtwarzana 2 razy dłużej niż po wprowadzeniu ``2`` itd. W miejsce nazwy nuty możesz wpisać ``R``. Wtedy MicroPython nie będzie odtwarzał nut przez ustalony czas.
+Każda nuta ma nazwę (np. ``C#`` lub ``F``), oktawę (określającą jak wysoko lub nisko dźwięk ma być grany) oraz długość (przez jaki czas dźwięk ma być grany). Oktawy są oznaczone liczbami ~ 0 oznacza najniższą oktawę, oktawa 4 zawiera środkowe C, a 8 jest tak wysoko, że wyższej już nie będziesz potrzebować, chyba że zechcesz tworzyć muzykę dla psów. Długość dźwięku jest również wyrażana jako liczby. Im większa liczba tym dłużej nuta będzie odtwarzana. Te wielkości są od siebie zależne, np. po wprowadzeniu wartości ``4``, nuta będzie odtwarzana 2 razy dłużej niż po wprowadzeniu ``2`` itd. Jeśli zamiast nuty wpiszesz "R", to MicroPython w tym miejscu zrobi pauzę (ang. rest) o zadanej długości.
 
 Każda nuta opisywana jest jako ciąg znaków::
 
@@ -71,7 +71,7 @@ któremu MicroPython zagra początek melodii "Panie Janie"::
 
 .. note::
 
-    MicroPython umożliwia zapisywanie takich melodii w uproszczony sposób. Zapamięta oktawę, długość nuty i będzie je wykorzystywał aż do wprowadzenia nowych wartości. Dzięki temu powyższy przykład może zostać zapisany tak:
+    MicroPython umożliwia zapisywanie takich melodii w uproszczony sposób. Zapamięta oktawę oraz długość nuty i będzie je wykorzystywał aż do wprowadzenia nowych wartości. Dzięki temu powyższy przykład może zostać zapisany tak:
 
         import music
 
@@ -80,7 +80,7 @@ któremu MicroPython zagra początek melodii "Panie Janie"::
                "E:4", "F", "G:8"]
         music.play(tune)
 
-    Zauważ że wartości określające oktawę i czas trwania są wpisywane tylko wtedy, kiedy są zmieniane. Dzięki temu kod jest łatwiejszy zarówno do napisania jak i do odczytania.
+    Zauważ, że wartości określające oktawę i czas trwania są wpisywane tylko wtedy, kiedy są zmieniane. Dzięki temu kod jest łatwiejszy zarówno do napisania jak i do odczytania.
 
 Efekty dźwiękowe
 ++++++++++++++++
@@ -97,12 +97,12 @@ Na przykład dzięki poniższemu kodowi możemy uzyskać efekt syreny policyjnej
             music.pitch(freq, 6)
 
 
-Zwróć uwagę na to jak polecenie ``music.pitch`` jest w tym przypadku użyte.
-Wymaga podania częstotliwości. Np. częstotliwość o wartości ``440`` jest podobna do częstotliwości jakiegoś koncertu, natomiast ``A`` to częstotliwość odpowiadająca orkiestrze symfonicznej.
+Zwróć uwagę, że w tym przypadku użyliśmy metody ``music.pitch``.
+Wymaga ona podania częstotliwości. Na przykład częstotliwość 440 to koncertowe A używane do strojenia instrumentów w orkiestrze symfonicznej.
 
-W powyższym przykładzie funkcja ``range`` (ang. zakres) jest wykorzystana do ustalenia zakresu wartości liczbowych. W powyższym przykładzie liczby te definiują wysokość tonu, po kolei: wartość początkową oraz wartość końcową. Jednak interesuje nas tylko co któraś liczba. O tym informuje ostatnia wartość. Tak więc pierwsza funkcja mówi: "dany zbiór ma zawierać co 16-tą liczbę w zakresie od 880 do 1760". Drugi zapis mówi: "zbiór ma zawierać liczby od 1760 do 880 zmniejszające się o 16". W ten sposób uzyskamy zakres częstotliwości, które stopniowo zwiększając się i zmniejszając tworzą dźwięk przypominający syrenę.
+W powyższym przykładzie funkcja ``range`` (ang. zakres) jest wykorzystana do wygenerowania zakresów numerycznych wartości. Te liczby są użyte do zdefiniowania wysokości tonu. Te trzy argumenty dla funkcji ``range`` to odpowiednio wartość początkowa zakresu, wartość końcowa i krok. Zatem pierwsze użycie ``range`` mówi w angielskim "utwórz przedział liczb pomiędzy 880 a 1760 o kroku 16". Drugie użycie ``range`` mówi "utwórz przedział wartości pomiędzy 1760 a 880 o kroku -16". W ten sposób uzyskamy zakres częstotliwości, które stopniowo zwiększając się i zmniejszając tworzą dźwięk przypominający syrenę.
 
 Ponieważ dźwięk syreny powinien trwać nieskończenie długo, jest on wpisany
 w niekończącą się pętlę ``while``.
 
-Co ważne, wprowadziliśmy nowy rodzaj pętli wewnątrz pętli "while" (dopóki): pętlę "for" (dla). Opisując je powiedzielibyśmy: "dla każdego elementu w pewnym zbiorze, zrób z nią coś określonego". W kontekście poprzedniego przykładu: " dla każdej częstotliwości w ustalonym zakresie częstotliwości, graj ton o tej częstotliwości przez 6 milisekund". Zauważ wcięcia przy opisie każdej z czynności, które wykonujemy dla danego elementu (mówiliśmy o tym wcześniej). Dzięki temu Python dokładnie wie jaki fragment kodu uruchomić przy danych elementach.
+Co ważne, wprowadziliśmy nowy rodzaj pętli wewnątrz pętli ``while`` (ang. dopóki): pętlę ``for`` (ang. dla). Po angielsku to jest tak, jak powiedzieć "dla każdego elementu w pewnym zbiorze, wykonaj z nim pewną czynność". Konkretnie w powyższym przypadku to oznacza "dla każdej częstotliwości w określonym w zakresie, graj ton o tej częstotliwości przez 6 milisekund". Zwróć uwagę na wcięcia przy każdym wierszu wewnątrz pętli for (mówiliśmy o tym wcześniej), tak więc Python dokładnie wie, który kod uruchomić aby obsłużyć poszczególne elementy.
