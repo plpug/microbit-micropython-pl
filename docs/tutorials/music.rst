@@ -100,7 +100,7 @@ Na przykład dzięki poniższemu kodowi możemy uzyskać efekt syreny policyjnej
 Zwróć uwagę, że w tym przypadku użyliśmy metody ``music.pitch``.
 Wymaga ona podania częstotliwości. Na przykład częstotliwość 440 to koncertowe A używane do strojenia instrumentów w orkiestrze symfonicznej.
 
-W powyższym przykładzie funkcja ``range`` (ang. zakres) jest wykorzystana do wygenerowania zakresów numerycznych wartości. Te liczby są użyte do zdefiniowania wysokości tonu. Te trzy argumenty dla funkcji ``range`` to odpowiednio wartość początkowa zakresu, wartość końcowa i krok. Zatem pierwsze użycie ``range``, po polsku "utwórz przedział liczb pomiędzy 880 a 1760 o kroku 16". Drugie użycie ``range`` mówi "utwórz przedział wartości pomiędzy 1760 a 880 o kroku -16". W ten sposób uzyskamy zakres częstotliwości, które stopniowo zwiększając się i zmniejszając tworzą dźwięk przypominający syrenę.
+W powyższym przykładzie funkcja ``range`` (ang. zakres) jest wykorzystana do wygenerowania zakresów numerycznych wartości. Te liczby są użyte do zdefiniowania wysokości tonu. Te trzy argumenty dla funkcji ``range`` to odpowiednio wartość początkowa zakresu, wartość końcowa i krok. Zatem pierwsze użycie ``range``, mówi po polsku "utwórz przedział liczb pomiędzy 880 a 1760 o kroku 16". Drugie użycie ``range`` mówi "utwórz przedział wartości pomiędzy 1760 a 880 o kroku -16". W ten sposób uzyskamy zakres częstotliwości, które stopniowo zwiększając się i zmniejszając tworzą dźwięk przypominający syrenę.
 
 Ponieważ dźwięk syreny powinien trwać nieskończenie długo, jest on wpisany
 w niekończącą się pętlę ``while``.
