@@ -77,7 +77,7 @@ wyglądają pozostałe obrazy? (Wystarczy że zastąpisz ``Image.HAPPY`` jednym
 z innych wbudowanych obrazów które są wypisane powyżej.)
 
 Obrazy -- Zrób to sam
-++++++++++
++++++++++++++++++++++
 
 Naturalnie, na pewno chcesz stworzyć własny obrazek do wyświetlenia, prawda?
 
@@ -108,7 +108,7 @@ które będą nieco ciemniejsze od kadłuba.)
 Wiesz już jak tworzyć obrazki? Widzisz jak każda linia wyświetlacza jest
 reprezentowana przez ciąg znaków kończący się ``:`` (dwukropkiem) i zamknięty
 w ``"`` (cudzysłów)? Każda liczba określa jasność. Mamy pięć linii po pięć
-liczb, zatem możemy osobno podać jasność każdemu pikselowi na urządzeniu. Tak
+liczb, zatem możemy osobno nadać jasność każdemu pikselowi na urządzeniu. Tak
 właśnie tworzy się własne obrazy.
 
 Proste? Proste!
@@ -132,13 +132,13 @@ Tu jest lista zakupów::
 
 Oto jak przedstawiłbyś tę listę w Python::
 
-    zakupy = ["Jaja", "Bekon", "Pomidory" ]
+    zakupy = ["Jaja", "Boczek", "Pomidory" ]
 
 Po prostu utworzyłem listę nazwaną ``zakupy`` i zawiera ona trzy elementy.
 Python wie, że to jest lista ponieważ jest zawarta w kwadratowych nawiasach (``[`` i
 ``]``). Elementy w liście są oddzielone przecinkami (``,``) i w tej instancji
-elementy są trzema ciągami znaków: ``"Jaja"``, ``"Bekon"`` i ``"Pomidory"``.
-My wiemy, że są one ciągami znaków ponieważ są zawarte w cudzysłowie ``"``.
+elementy są trzema ciągami znaków: ``"Jaja"``, ``"Boczek"`` i ``"Pomidory"``.
+My wiemy, że są one ciągami znaków ponieważ są objęte znakami cudzysłowu ``"``.
 
 W liście Python możesz przechowywać cokolwiek. Tu jest lista liczb::
 
@@ -155,9 +155,9 @@ Jest nawet możliwe przechowywanie różnych rodzajów rzeczy w tej samej liści
 
     mixed_up_list = ["hello!", 1.234, Image.HAPPY]
 
-Zwróć uwagę na ostatni element? To był obrazek!
+Zwróciłeś uwagę na ostatni element? To był obrazek!
 
-Możemy powiedzieć MicroPythonowi aby animował listę obrazków. Szczęśliwie mamy
+Możemy powiedzieć MicroPythonowi, aby animował listę obrazków. Szczęśliwie mamy
 już kilka wbudowanych list obrazków. Są to ``Image.ALL_CLOCKS`` i
 ``Image.ALL_ARROWS``::
 
@@ -167,19 +167,19 @@ już kilka wbudowanych list obrazków. Są to ``Image.ALL_CLOCKS`` i
 
 Używamy ``display.show`` do pokazania listy obrazków na ekranie urządzenia
 tak, jak w przypadku pojedynczego obrazka. Jednak mówimy MicroPythonowi użyj
-``Image.ALL_CLOCKS`` i on rozumie, że potrzebuje pokazać każdy obrazek z listy
-jeden po drugim. Mówimy też MicroPythonowi aby użył pętli dla listy obrazków
-(tak więc animacja trwa nieskończenie) przez ``loop=True``. Ponadto mówimy
-jemu, że chcemy aby opóźnienia pomiędzy każdym obrazkiem były tylko 100
-milisekund (0,1 sekundy) w argumencie ``delay=100``.
+``Image.ALL_CLOCKS`` i on rozumie, że musi pokazać każdy obrazek z listy
+jeden po drugim. Rozkazujemy też MicroPythonowi aby powtarzał listę obrazków
+(tak więc animacja trwa nieskończenie) przez ``loop=True``. Ponadto każemy mu,
+aby opóźnienia pomiędzy każdym obrazkiem były tylko 100 milisekund (0,1
+sekundy) w argumencie ``delay=100``.
 
 Czy możesz domyślić się jak animować obrazki z listy ``Image.ALL_ARROWS``?
 Jak możesz uniknąć nieskończonego powtarzania (podpowiedź: przeciwieństwem do
 ``True`` (ang. prawdziwy) jest ``False`` (ang. fałszywy) chociaż domyślna
 wartość dla ``loop`` jest ``False``)? Czy potrafisz zmienić prędkość animacji?
 
-Ostatecznie tu jest jak utworzyć swoją własną animację. W moim przykładzie
-zamierzam stworzyć tonącą łódź na ekranie::
+Wreszcie tutaj możesz zobaczyć jak utworzyć swoją własną animację. W moim
+przykładzie zamierzam stworzyć łódź tonącą na dno ekranu::
 
     from microbit import *
 
@@ -224,10 +224,10 @@ zamierzam stworzyć tonącą łódź na ekranie::
 
 A tak działa ten kod:
 
-* Utworzyłem sześć ``boat`` (ang. łódź) obrazków w dokładnie ten sam sposób, jak opisałem powyżej.
+* Utworzyłem sześć obrazków ``boat`` (ang. łódź) w dokładnie ten sam sposób, jak opisałem powyżej.
 * Potem umieściłem wszystkie na liście, którą nazwałem ``all_boats``.
 * W końcu poprosiłem ``display.show`` o animację listy z opóźnieniem 200 milisekund.
-* Ponieważ nie użyłem ``loop=True`` łódź utonie tylko raz (to tworzy moją animację naukowo poprawną). :-)
+* Ponieważ nie użyłem ``loop=True`` łódź utonie tylko raz (to czyni moją animację naukowo poprawną). :-)
 
-Co chciałbyś animować? Czy chciałbyś animować efekty specjalne? Jak chciałbyś
-zrobić aby obrazek znikał, a potem pojawiał się znowu?
+Co chciałbyś animować? Czy chciałbyś animować efekty specjalne? Jak byś zrobił
+aby obrazek znikał, a potem pojawiał się znowu?
