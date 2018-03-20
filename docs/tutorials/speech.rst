@@ -48,7 +48,7 @@ Jest to urocze, jednak nie jest wystarczająco DALEKowate jak na nasz gust, dlat
 * ``mouth`` (pol. ``usta``) - czy mowa jest przez zaciśnięte zęby czy bardzo wyraźna (0 = kukiełka brzuchomówcy, 255 = Kurak Leghorn)
 * ``throat`` (pol. ``gardło``) - jak spokojny lub napięty jest ton głosu (0 = załamujący się, 255 = kompletnie rozluźniony)
 
-W sumie razem parametry te kontrolują jakość dźwięku -- tj. barwa dźwięku. Szczerze mówiąc, najlepszą drogą do uzyskania pożądanej barwy dźwięku jest eksperymentowanie, ocena i dostosowanie.
+W sumie razem parametry te kontrolują jakość dźwięku -- tj. barwę dźwięku. Szczerze mówiąc, najlepszą drogą do uzyskania pożądanej barwy dźwięku jest eksperymentowanie, ocena i dostosowanie.
 
 Aby dostosować ustawienia, przekazujesz je jako argumenty funkcji ``say``. Więcej szczegółów można znaleźć w dokumentacji interfejsu API ``speech``.
 
@@ -103,8 +103,8 @@ Jak pokazują komentarze, jest to bardzo prosty model:
 
 Co ciekawe, oryginalne wytyczne związane z poezją zostały napisane przez
 Davrosa w języku `FORTRAN <https://en.wikipedia.org/wiki/Fortran>`_
-(odpowiedni język DALEKów, gdyż pisany jest TYLKO WIELKIMI LITERAMI). Jednakże
-doktor cofnął się w czasie dokładnie do punktu pomiędzy wprowadzaniem
+(odpowiedni język dla DALEKów, gdyż pisany jest TYLKO WIELKIMI LITERAMI). Jednakże
+Doktor cofnął się w czasie dokładnie do punktu pomiędzy wprowadzaniem
 `testów jednostkowych <https://pl.wikipedia.org/wiki/Test_jednostkowy>`_ Davros'a i
 `potoków wdrożeniowych <https://en.wikipedia.org/wiki/Continuous_delivery>`_ .
 Wówczas był w stanie umieścić interpreter MicroPythona w systemie
@@ -140,7 +140,7 @@ Funkcja ``sing`` musi przyjąć jako dane wejściowe fonemy i tonację::
 
     speech.sing("#115DOWWWW")
 
-Zwróć uwagę na to w jaki sposób fonemy poprzedzone są wysokością dźwięku z symbolem kratki (``#``). Tonacja pozostanie taka sama dla kolejnych fonemów do momentu wprowadzenia nowej tonacji.
+Zwróć uwagę na to, w jaki sposób fonemy poprzedzone są wysokością dźwięku z symbolem kratki (``#``). Tonacja pozostanie taka sama dla kolejnych fonemów do momentu wprowadzenia nowej tonacji.
 
 Poniższy przykład pokazuje jak wszystkie trzy funkcje generujące (``say``,
 ``pronounce`` oraz ``sing``) mogą zostać wykorzystane do stworzenia czegoś przypominającego mowę.
