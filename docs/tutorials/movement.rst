@@ -1,10 +1,10 @@
 Ruch
---------
+----
 
 BBC micro:bit ma wbudowany akcelerometr. Mierzy on ruch wzdłuż trzech osi:
 
 *X - przechylanie od lewej do prawej.
-*Y - odchylanie do przodu i do tyłu.
+*Y - przechylanie do przodu i do tyłu.
 *Z - poruszanie górę i w dół.
 
 Dla każdej z osi jest metoda zwracająca liczbę dodatnią lub ujemną, wskazując pomiar w mili-g. Kiedy wyświetlacz pokazuje 0, oznacza to, że przyrząd jest równoległy do danej osi.
@@ -28,14 +28,14 @@ Chcemy, aby urządzenie natychmiastowo reagowało na zmiany, dlatego też użyli
 
 Istnieje również metoda ``get_y`` dla osi Y oraz ``get_z`` dla osi Z.
 
-Zastanawiałeś się kiedyś w jaki sposób telefon komórkowy rozpoznaje w którą stronę jest zwrócony i w jakiś sposób ma być zorientowany wyświetlany obraz na ekranie? Potrafi to właśnie dzięki wbudowanemu akcelerometrowi działającemu dokładnie jak ten w powyższym programie. Kontrolery gier również zawierają akcelerometry umożliwiające sterowanie i poruszanie się w grach.
+Zastanawiałeś się kiedyś w jaki sposób telefon komórkowy rozpoznaje w którą stronę jest zwrócony i w jaki sposób ma być zorientowany wyświetlany obraz na ekranie? Potrafi to właśnie dzięki wbudowanemu akcelerometrowi działającemu dokładnie jak ten w powyższym programie. Kontrolery gier również zawierają akcelerometry umożliwiające sterowanie i poruszanie się w grach.
 
 Muzyczny Zamęt
 ++++++++++++++
 
-Jednym z najcudowniejszych aspektów MicroPython na BBC micro:bit jest łatwość z jaką można łączyć różne możliwości tego urządzenia. Na przykład zamieńmy go (w pewnym sensie) na instrument muzyczny.
+Jednym z najcudowniejszych aspektów MicroPython na BBC micro:bit jest łatwość z jaką można łączyć różne możliwości tego urządzenia. Na przykład zamieńmy go (w pewnym sensie) w instrument muzyczny.
 
-Podłącz głośnik zgodnie z instrukcją w rozdziale Muzyka. Użyj krokodylków. Połącz styki 0 oraz GND z dodatnim i ujemnym wejściem głośnika - nie ma znaczenia które wejście z którym stykiem zostanie połączone.
+Podłącz głośnik zgodnie z instrukcją w rozdziale Muzyka. Użyj krokodylków. Połącz styki 0 oraz GND z dodatnim i ujemnym wejściem głośnika -- nie ma znaczenia które wejście z którym stykiem zostanie połączone.
 
 .. image:: pin0-gnd.png
 
@@ -47,7 +47,7 @@ Co się stanie jak wykorzystamy odczyty z akcelerometru i stworzymy na ich podst
     while True:
         music.pitch(accelerometer.get_y(), 10)
 
-Kluczowa linijka znajduje się na końcu i jest niewiarygodnie prosta. *Zagnieżdżamy* odczyt z osi Y jako częstotliwość wprowadzaną do metody ``music.pitch``. Ponieważ chcemy, żeby ton był zmieniany tak szybko jak urządzenie jest przechylane, pozwalamy mu grać tylko przez 10 milisekund. Dzięki temu, że narzędzie jest w niekończącej się pętli ``while``, nieustannie reaguje na zmiany w odczytach osi Y.
+Kluczowa linijka znajduje się na końcu i jest niewiarygodnie prosta. *Zagnieżdżamy* odczyt z osi Y jako częstotliwość wprowadzaną do metody ``music.pitch``. Ponieważ chcemy, żeby ton był zmieniany tak szybko jak urządzenie jest przechylane, pozwalamy mu grać tylko przez 10 milisekund. Dzięki temu, że urządzenie jest w niekończącej się pętli ``while``, nieustannie reaguje na zmiany w odczytach osi Y.
 
 To wystarczy!
 
