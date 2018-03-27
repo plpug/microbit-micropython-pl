@@ -1,5 +1,5 @@
 Sieć
--------
+----
 
 Możemy połączyć urządzenia w celu wymiany wiadomości między
 nimi. Nazywa się to siecią. Sieć połączonych sieci nazywana
@@ -27,7 +27,7 @@ To właśnie na tym fundamencie możemy układać wszystkie pozostałe warstwy
 naszej *sieci*.
 
 Jak widzimy na rysunku, niebieskie urządzenie micro:bits jest połączone z czerwonym
-za pośrednictwem przewodów krokodylkowych. W obydwu przypadkach wtyk 1 jest wykorzystywany do
+za pośrednictwem krokodylków. W obydwu przypadkach wtyk 1 jest wykorzystywany do
 sygnału wyjściowego, natomiast wtyk 2 — wejściowego. Wyjście jednego urządzenia jest
 połączone z wejściem drugiego. Przypomina to słuchawkę telefonu: na jednym jej końcu
 umiejscowiony jest mikrofon (wyjście), na drugim — głośniczek (wejście). Głos zapisany
@@ -40,8 +40,8 @@ Sygnał
 ++++++
 
 Następną warstwą w naszej *sieci* jest sygnał. Często zależy on od
-rodzaju połączenia. W naszym przypadku jest to zwykły sygnał wlączenia i
-wyłącznia przekazywany za pośrednictwem wtyków w naszych przewodach.
+rodzaju połączenia. W naszym przypadku jest to zwykły sygnał włączenia i
+wyłączenia przekazywany za pośrednictwem wtyków w naszych przewodach.
 
 Jak już wiemy, wtyki wyjścia/wejścia można wykorzystać w następujący sposób::
 
@@ -107,7 +107,7 @@ nie więcej niż 250 milisekund każdy, po których następuje przerwa dłuższa
 niż 500 milisekund (określająca koniec litery).
 
 Wiadomość
-+++++++
++++++++++
 
 Wreszcie dotarliśmy do chwili, gdy możemy stworzyć wiadomość, która
 ma dla ludzi określone znaczenie. Jest to najwyższa warstwa w
@@ -121,7 +121,7 @@ przewodu następującą sekwencję sygnałów do innego urządzenia micro:bit::
 Czy możesz odczytać te wiadomość?
 
 Aplikacja
-+++++++++++
++++++++++
 
 Posiadanie sieci jest dobre, jednak potrzebujemy również sposobu, żeby wejść
 z nią w interakcję. Można to zrobić z pomocą aplikacji, która wysyła i przyjmuje
@@ -140,7 +140,7 @@ to alfabet Morse'a, jeśli mamy podłączony głośniczek, powinniśmy mieć mo�
 odtworzenia sygnałów dźwiękowych w chwili gdy użytkownik wprowadza swoją wiadomość.
 
 Efekt końcowy
-++++++++++++++
++++++++++++++
 
 Poniżej zamieszczony jest program w całej swojej krasie wraz z dużą ilością
 komentarzy, żebyś mógł zobaczyć co się dzieje::
@@ -149,7 +149,7 @@ komentarzy, żebyś mógł zobaczyć co się dzieje::
     import music
 
 
-    # A lookup table of morse codes and associated characters.
+    # tabela kodów alfabetu Morse'a i odpowiednio do każdego z nich przypisanego znaku.
     MORSE_CODE_LOOKUP = {
         ".-": "A",
         "-...": "B",
@@ -191,12 +191,12 @@ komentarzy, żebyś mógł zobaczyć co się dzieje::
 
 
     def decode(buffer):
-        # Attempts to get the buffer of Morse code data from the lookup table. If
-        # it's not there, just return a full stop.
+        # Próba pobrania kodu Morse'a z tabeli znaków. Jeżeli
+        # go tam nie ma, po prostu zwróć kropkę.
         return MORSE_CODE_LOOKUP.get(buffer, '.')
 
 
-    # How to display a single dot.
+    # Jak wyświetlić pojedynczą kropkę.
     DOT = Image("00000:"
                 "00000:"
                 "00900:"
@@ -204,7 +204,7 @@ komentarzy, żebyś mógł zobaczyć co się dzieje::
                 "00000:")
 
 
-    # How to display a single dash.
+    # Jak wyświetlić pojedynczą kreskę.
     DASH = Image("00000:"
                  "00000:"
                  "09990:"
@@ -212,91 +212,92 @@ komentarzy, żebyś mógł zobaczyć co się dzieje::
                  "00000:")
 
 
-    # To create a DOT you need to hold the button for less than 250ms.
+    # Aby utworzyć KROPKĘ musisz przytrzymać przycisk krócej niż 250 milisekund.
     DOT_THRESHOLD = 250
-    # To create a DASH you need to hold the button for less than 500ms.
+    # Aby utworzyć KRESKĘ musisz przytrzymać przycisk krócej niż 500 milisekund.
     DASH_THRESHOLD = 500
 
 
-    # Holds the incoming Morse signals.
+    # Trzyma przychodzący sygnał Morse'a.
     buffer = ''
-    # Holds the translated Morse as characters.
+    # Trzyma przetłumaczony sygnał Morse'a na znaki.
     message = ''
-    # The time from which the device has been waiting for the next keypress.
+    # Czas od kiedy urządzenie czeka na naciśnięcie następnego klawisza.
     started_to_wait = running_time()
 
 
-    # Put the device in a loop to wait for and react to key presses.
+    # Ustaw urządzenie w pętli, aby czekało i zareagowało na naciśnięcie.
     while True:
-        # Work out how long the device has been waiting for a keypress.
+        # Oblicz jak długo urządzenie czekało na naciśnięcie.
         waiting = running_time() - started_to_wait
-        # Reset the timestamp for the key_down_time.
+        # Zresetuj czas dla key_down_time.
         key_down_time = None
-        # If button_a is held down, then...
+        # Jeżeli button_a jest przytrzymany, to wtedy...
         while button_a.is_pressed():
-            # Play a beep - this is Morse code y'know ;-)
+            # Zabrzęcz - to jest alfabet Morse'a, rozumiesz ;-)
             music.pitch(880, 10)
-            # Set pin1 (output) to "on"
+            # Ustaw pin1 (wyjście) na "on" (ang. włączony)
             pin1.write_digital(1)
-            # ...and if there's not a key_down_time then set it to now!
+            # ... i jeżeli key_down_time jest puste, to wtedy ustaw go na teraz!
             if not key_down_time:
                 key_down_time = running_time()
-        # Alternatively, if pin2 (input) is getting a signal, pretend it's a
-        # button_a key press...
+        # Alternatywnie, jeżeli pin2 (wejście) jest otrzymuje sygnał, zasymuluj
+        # naciśnięcie klawisza button_a...
         while pin2.read_digital():
             if not key_down_time:
                 key_down_time = running_time()
-        # Get the current time and call it key_up_time.
+        # Pobierz aktualny czas i nazwij go key_up_time.
         key_up_time = running_time()
-        # Set pin1 (output) to "off"
+        # Ustaw pin1 (wyjście) na "off" (ang. wyłączony)
         pin1.write_digital(0)
-        # If there's a key_down_time (created when button_a was first pressed
-        # down).
+        # Jeżeli key_down_time jest ustawiona (utworzona gdy button_a został
+        # naciśnięty pierwszy raz).
         if key_down_time:
-            # ... then work out for how long it was pressed.
+            # ... potem oblicz jak długo był wciśnięty.
             duration = key_up_time - key_down_time
-            # If the duration is less than the max length for a "dot" press...
+            # Jeżeli duration (ang. czas trwania) jest mniejszy niż maksymalna długość
+            # dla naciśnięcia "dot"... (ang. kropka)
             if duration < DOT_THRESHOLD:
-                # ... then add a dot to the buffer containing incoming Morse codes
-                # and display a dot on the display.
+                # ... wtedy dodaj kropkę do buffer (ang. bufor) zawierającego
+                # przychodzący kod Morse'a i wyświetl kropkę na wyświetlaczu.
                 buffer += '.'
                 display.show(DOT)
-            # Else, if the duration is less than the max length for a "dash"
-            # press... (but longer than that for a DOT ~ handled above)
+            # W przeciwnym wypadku, ale jeżeli czas trwania jest mniejszy niż maksymalna
+            # długość dla naciśnięcia "dash"... (ang. kreska) (ale dłuższy niż dla
+            # KROPKI ~ określonej powyżej)
             elif duration < DASH_THRESHOLD:
-                # ... then add a dash to the buffer and display a dash.
+                # ... wtedy dodaj kreskę do bufora i wyświetl kreskę.
                 buffer += '-'
                 display.show(DASH)
-            # Otherwise, any other sort of keypress duration is ignored (this isn't
-            # needed, but added for "understandability").
+            # W pozostałych przypadkach, każda inna długość naciśnięcia jest ignorowana
+            # (to nie jest konieczne, ale zostało dodane dla "zrozumiałości").
             else:
                 pass
-            # The button press has been handled, so reset the time from which the
-            # device is starting to wait for a  button press.
+            # Obsługa przycisku została zakończona, więc zresetuj czas od którego
+            # urządzenie rozpoczyna czekać na naciśnięcie przycisku.
             started_to_wait = running_time()
-        # Otherwise, there hasn't been a button_a press during this cycle of the
-        # loop, so check there's not been a pause to indicate an end of the
-        # incoming Morse code character. The pause must be longer than a DASH
-        # code's duration.
+        # W przeciwnym razie button_a nie został naciśnięty podczas tego cyklu pętli,
+        # więc sprawdź czy to nie przerwa wskazująca na koniec przychodzącego kodu
+        # Morse'a dla znaku. Przerwa musi być dłuższa niż czas dla KRESKI (DASH)
         elif len(buffer) > 0 and waiting > DASH_THRESHOLD:
-            # There is a buffer and it's reached the end of a code so...
-            # Decode the incoming buffer.
+            # Mamy bufor i przetwarzanie dobiegło końca tak więc...
+            # Rozkoduj zawartość bufora.
             character = decode(buffer)
-            # Reset the buffer to empty.
+            # Opróżnij bufor do czysta.
             buffer = ''
-            # Show the decoded character.
+            # Pokaż odkodowane znaki.
             display.show(character)
-            # Add the character to the message.
+            # Dodaj znaki do wiadomości.
             message += character
-        # Finally, if button_b was pressed while all the above was going on...
+        # Ostatecznie, jeżeli button_b został naciśnięty podczas trwania powyższego...
         if button_b.was_pressed():
-            # ... display the message,
+            # ... wyświetl wiadomość,
             display.scroll(message)
-            # then reset it to empty (ready for a new message).
+            # potem opróżnij do czysta (gotowy na nową wiadomość).
             message = ''
 
-How would you improve it? Can you change the definition of a dot and a dash so
-speedy Morse code users can use it? What happens if both devices are sending at
-the same time? What might you do to handle this situation?
+Jak chciałbyś ulepszyć to? Czy możesz zmienić definicje kropki i kreski tak by
+biegły użytkownik alfabetu Morse'a mógł użyć tego? Co się stanie gdy oba urządzenia
+będą wysyłać w tym samym czasie? Co możesz zrobić, aby poradzić sobie z tą sytuacją.
 
-.. footer:: The image of Queen Elizabeth II is licensed as per the details here: https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_II_March_2015.jpg
+.. footer:: Obraz Królowej Elżbiety II został użyty zgodnie z licencją określoną na stronie: https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_II_March_2015.jpg
