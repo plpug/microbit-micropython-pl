@@ -1,163 +1,149 @@
 Radio
 -----
 
-Interaction at a distance feels like magic.
+Komunikacja na odległość jest jak magia. 
 
-Magic might be useful if you're an elf, wizard or unicorn, but such things only
-exist in stories.
+Magia może być użyteczna jeśli jesteś elfem, czarodziejem lub jednorożcem, ale oni istnieją tylko w powieściach.
 
-However, there's something much better than magic: physics!
+Jednakże jest coś znacznie lepszego od magii: fizyka!
 
-Wireless interaction is all about physics: radio waves (a type of
-electromagnetic radiation, similar to visible light) have some sort of property
-(such as their amplitude, phase or pulse width) modulated by a transmitter in
-such a way that information can be encoded and, thus, broadcast. When radio
-waves encounter an electrical conductor (i.e. an aerial), they cause an
-alternating current from which the information in the waves can be extracted
-and transformed back into its original form.
+Bezprzewodowa interakcja to sama fizyka: fale radiowe (rodzaj promieniowania elektromagnetycznego, 
+podobnego do światła widzialnego) mają pewną właściwość (tak jak ich amplituda, faza lub długość)
+modulowaną przez nadajnik w taki sposób, że można w niej zakodować wiadomość, a dzięki temu przesyłać. 
+Kiedy fale radiowe natrafią na przewodnik elektryczny (np. antenę) wzbudzają w niej prąd zmienny, 
+z którego można wyciągnąć informacje zawarte w falach radiowych i przekształcić je na formę cyfrową. 
 
-Layers upon Layers
-++++++++++++++++++
+Warstwy na warstwach
+++++++++++++++++++++
 
-If you remember, networks are built in layers.
+Jak pamiętasz, sieci są tworzone w warstwach. 
 
-The most fundamental requirement for a network is some sort of connection that
-allows a signal to get from one device to the other. In our networking
-tutorial we used wires connected to the I/O pins. Thanks to the radio module we
-can do away with wires and use the physics summarised above as the invisible
-connection between devices.
+Podstawowym wymaganiem dla sieci jest taki rodzaj połączenia, który pozwoli by sygnał dotarł
+z jednego urządzenia do drugiego. W naszym samouczku dotyczącym sieci używaliśmy przewodów 
+podłączonych do pinów wejście/wyjście (I/O). Przy pomocy radia możemy pracować bez przewodów, 
+wykorzystując fizykę do niewidzialnego połączenia urządzeń. 
 
-The next layer up in the network stack is also different from the example in
-the networking tutorial. With the wired example we used digital on and off to
-send and read a signal from the pins. With the built-in radio on the
-micro:bit the smallest useful part of the signal is a byte.
+Następna warstwa na stosie sieciowym jest również inna od przykładu z wprowadzenia do sieci. 
+W przykładzie z przewodami stosowaliśmy cyfrowe włącz i wyłącz do wysłania i odebrania sygnału z pinów. 
+Z radiem wbudowanym w micro:bit najmniejsza użyteczna cząstka sygnału to bajt.
 
-Bytes
+Bajty
 +++++
 
-A byte is a unit of information that (usually) consists of eight bits. A bit is
-the smallest possible unit of information since it can only be in two states:
-on or off.
+Bajt jest jednostką informacji, która składa się (najcześciej) z ośmiu bitów. 
+Bit jest najmniejszą możliwą jednostką informacji ponieważ może przyjmować 
+tylko dwa stany włączony (1) i wyłączony (0).
 
-Bytes work like a sort of abacus: each position in the byte is like a
-column in an abacus - they represent an associated number. In an abacus these
-are usually thousands, hundreds, tens and units (in UK parlance). In a byte
-they are 128, 64, 32, 16, 8, 4, 2 and 1. As bits (on/off
-signals) are sent over the air, they are re-combined into bytes by the
-recipient.
+Bajty zachowują się jak liczydło (abakus), każda pozycja w bajcie jest jak kolumna liczydła - 
+reprezentują przypisany numer. W liczydle są to najczęściej tysiące, setki, dziesiątki i jednostki. 
+W bajtach są to 128, 64, 32, 16, 8, 4, 2 oraz 1. Jako bity (sygnały włączony/wyłączony)
+przesyłane są w powietrzu i składane ponownie w bajty w odbiorniku. 
 
-Have you spotted the pattern? (Hint: base 2.)
+Czy zauważyłeś jakąś prawidłowość (podpowiedź: podstawa 2.)
 
-By adding the numbers associated with the positions in a byte that are set to
-"on" we can represent numbers between 0 and 255. The image below shows how this
-works with five bits and counting from zero to 32:
+Dodając numery związane z pozycją w bajcie, które są w pozycji "włączony" możemy wyrazić liczby od 0 do 255. 
+Poniższy obrazek pokazuje jak to się odbywa dla pierwszych pięciu bitów licząc od 0 do 32:
 
 .. image:: binary_count.gif
 
-If we can agree what each one of the 255 numbers (encoded by a byte) represents ~ such as a character ~ then we can start to send text one character per byte
-at a time.
+Jeżeli przyjmiemy co reprezentuje każdy z 255 numerów (zakodowanych w bajcie) - jak np. literę lub znak - wtedy możemy zacząć przesyłać tekst bajt po bajcie. 
+	
+Co ciekawe, ktoś już nad tym pomyślał <https://en.wikipedia.org/wiki/ASCII>. Wykorzystywanie
+bajtów do kodowania informacji jest obecnie powszechne. Przypomina to trochę 
+porozumiewanie się alfabetem Morse'a o którym pisaliśmy w dziale sieć.
 
-Funnily enough, people have already
-`thought of this <https://en.wikipedia.org/wiki/ASCII>`_ ~ using bytes to
-encode and decode information is commonplace. This approximately corresponds to
-the Morse-code "protocol" layer in the wired networking example.
+Świetnym wytłumaczeniem przyjaznym dla uczniów (i nauczycieli) jest seria na stronie `CS unplugged <http://csunplugged.org/binary-numbers/>`
 
-A really great series of child (and teacher) friendly explanations of "all
-things bytes" can be found at the
-`CS unplugged <http://csunplugged.org/binary-numbers/>`_ website.
+Adresowanie
++++++++++++
 
-Addressing
-++++++++++
+Problemem radia jest to, że nie możesz transmitować bezpośrednio do jednej osoby. 
+Każdy posiadający odpowiednią antenę może odebrać twoją wiadomość. W związku z tym 
+trzeba rozróżniać to, kto powinien odbierać transmisję. 
 
-The problem with radio is that you can't transmit directly to one person.
-Anyone with an appropriate aerial can receive the messages you transmit. As a
-result it's important to be able to differentiate who should be receiving
-broadcasts.
+Sposób, w jaki radio wbudowane w micro:bit, rozwiązuje ten problem jest całkiem prosty:
 
-The way the radio built into the micro:bit solves this problem is quite simple:
+* Radio można dostroić na różne kanały (o numerach 0-100). Działa to dokładnie tak jak krótkofalówki (walkie-talkie): wszyscy ustawiają jeden wspólny kanał i wszyscy słyszą wiadomości innych nadających na tym kanale. Tak jak w walkie-talkie używanie sąsiadujących kanałów może powodować zakłócenia. 
 
-* It's possible to tune the radio to different channels (numbered 0-100). This works in exactly the same way as kids' walkie-talkie radios: everyone tunes into the same channel and everyone hears what everyone else broadcasts via that channel. As with walkie-talkies, if you use adjacent channels there is a slight possibility of interference.
+* Moduł radia pozwala na sprecyzowanie dwóch informacji: adresu i grupy. Adres jest jak adres pocztowy a grupa jest jak nazwisko adresata w pod danym adresem. Trzeba pamiętać, że radio odfiltruje z otrzymanych wiadomości te które nie "pasują" do Twojego adresu i grupy. Dlatego trzeba pamiętać o ustawieniu odpowiedniego adresu w aplikacji którą chcesz używać. 
 
-* The radio module allows you to specify two pieces of information: an address and a group. The address is like a postal address whereas a group is like a specific recipient at the address. The important thing is the radio will filter out messages that it receives that do not match *your* address and group. As a result, it's important to pre-arrange the address and group your application is going to use.
+W rzeczywistości micro:bit wciąż odbiera transmisję do innych adresów/grup. Ważną rzeczą jest to,
+że nie musisz zajmować się samodzielnie filtrowaniem wiadomości. Niemniej, gdyby ktoś był 
+odpowiednio sprytny, mógłby podsłuchiwać wszystkie transmisje, niezależnie od tego do jakiego 
+adresu/grupy były przeznaczone. Z tego powodu ważne jest by korzystać z szyfrowanych komunikacji,
+w taki sposób by tylko pożądany odbiorca mógł odczytać przesłaną wiadomość. Kryptografia jest 
+fascynującym tematem, ale niestety, poza zakresem naszej instrukcji. 
+	
 
-Of course, the micro:bit is still receiving broadcast messages for other
-address/group combinations. The important thing is you don't need to worry
-about filtering those out. Nevertheless, if someone were clever enough, they
-could just read *all the wireless network traffic* no matter what the target
-address/group was supposed to be. In this case, it's *essential* to use
-encrypted means of communication so only the desired recipient can actually
-read the message that was broadcast. Cryptography is a fascinating subject but,
-unfortunately, beyond the scope of this tutorial.
-
-Fireflies
+Świetliki
 +++++++++
 
-This is a firefly:
+Oto świetlik: 
 
 .. image:: firefly.gif
 
-It's a sort of bug that uses bioluminescence to signal (without wires) to its
-friends. Here's what they look like when they signal to each other:
+Jest to rodzaj owada, który wykorzystuje bioluminescencję do komunikacji (bez przewodów)
+ze swoimi przyjaciółmi. Oto jak wyglądają kiedy nadają do siebie nawzajem:
 
 .. image:: fireflies.gif
 
-The BBC have `rather a beautiful video <http://www.bbc.com/earth/story/20160224-worlds-largest-gathering-of-synchronised-fireflies>`_ of fireflies available online.
+Na stronie BBC dostępne jest też piękne wideo świetlików <http://www.bbc.com/earth/story/20160224-worlds-largest-gathering-of-synchronised-fireflies>.
 
-We're going to use the radio module to create something akin to a swarm of
-fireflies signalling to each other.
+Wykorzystamy moduł radia do czegoś na kształt roju świetlików nadających do siebie.
 
-First ``import radio`` to make the functions available to your Python program.
-Then call the ``radio.on()`` function to turn the radio on. Since
-the radio draws power and takes up memory we've made it so *you* decide
-when it is enabled (there is, of course a ``radio.off()`` function).
+Najpierw wykonaj komendę ``import radio`` by udostępnić funkcje w Twoim Pythonie. 
+Następnie wywołaj funkcję ``radio.on()`` by włączyć radio. W związku z tym, że radio
+pobiera prąd i zajmuje pamięć zrobiliśmy tak byś Ty mógł decydować kiedy 
+jest włączone (oczywiście przy pomocy funkcji ``radio.off()``).
 
-At this point the radio module is configured to sensible defaults that make
-it compatible with other platforms that may target the BBC micro:bit. It is
-possible to control many of the features discussed above (such as channel and
-addressing) as well as the amount of power used to broadcast messages and the
-amount of RAM the incoming message queue will take up. The API documentation
-contains all the information you need to configure the radio to your needs.
+W tym momencie moduł radia jest skonfigurowany do sensownych ustawień domyślnych,
+które sprawiają, że jest kompatybilny z innymi platformami współpracującymi z BBC micro:bit.
+Jest możliwe kontrolowanie wielu funkcji wymienionych wcześniej (takich jak kanał i adres)
+jak również moc wykorzystywaną do nadawania i ilość pamięci RAM jaką zajmie kolejka wiadomości
+przychodzących. Dokumentacja API zawiera wszystkie informacje potrzebne do skonfigurowania radia,
+tak by spełniało Twoje potrzeby. 
 
-Assuming we're happy with the defaults, the simplest way to send a message is
-like this::
 
-    radio.send("a message")
+Zakładając, że jesteśmy zadowoleni z ustawień domyślnych, najprostszy sposób by wysłać wiadomość jest taki:
 
-The example uses the ``send`` function to simply broadcast the string
-"a message". To receive a message is even easier::
+	radio.send("wiadomość")
+		
+Ten przykład korzysta z funkcji ``send`` by zwyczajnie nadać ciąg znaków "wiadomość". Aby odebrać wiadomość jest jeszcze prościej:
 
-    new_message = radio.receive()
+	new_message = radio.receive()
+	
+Odebrane wiadomości są przechowywane w kolejce wiadomości. Funkcja ``receive`` 
+wyświetla najstarsze wiadomości z kolejki jako ciąg znaków, robiąc miejsce 
+na nowe wiadomości przychodzące. Jeżeli kolejka się zapełni, wtedy kolejne 
+wiadomości przychodzące będą ignorowane. 
 
-As messages are received they are put on a message queue. The ``receive``
-function returns the oldest message from the queue as a string, making space
-for a new incoming message. If the message queue fills up, then new incoming
-messages are ignored.
+To tak naprawdę wszystko! (Chociaż moduł radia jest wystarczająco mocny aby przesyłać dowolny typa danych, nie tylko ciągi znaków. Sprawdź w dokumentacji API jak to działa.)
 
-That's really all there is to it! (Although the radio module is also powerful
-enough that you can send any arbitrary type of data, not just strings. See the
-API documentation for how this works.)
-
-Armed with this knowledge, it's simple to make micro:bit fireflies like this:
+	
+Wyposażony w tę wiedzę, łatwo jest stworzyć micro:bit'owe świetliki:
 
 .. include:: ../../examples/radio.py
     :code: python
 
-The import stuff happens in the event loop. First, it checks if button A was
-pressed and, if it was, uses the radio to send the message "flash". Then it
-reads any messages from the message queue with ``radio.receive()``. If there is
-a message it sleeps a short, random period of time (to make the display more
-interesting) and uses ``display.show()`` to animate a firefly flash. Finally,
-to make things a bit exciting, it chooses a random number so that it has a 1 in
-10 chance of re-broadcasting the "flash" message to anyone else (this is how
-it's possible to sustain the firefly display among several devices). If it
-decides to re-broadcast then it waits for half a second (so the display from
-the initial flash message has chance to die down) before sending
-the "flash" signal again. Because this code is enclosed within a ``while True``
-block, it loops back to the beginning of the event loop and repeats this
-process forever.
 
-The end result (using a group of micro:bits) should look something like this:
+Następuje import w pętli. Najpierw, sprawdzi czy przycisk A został wciśnięty,
+jeśli tak, to wyśle wiadomość o treści "flash" ("błyskaj"). Następnie wyświetli 
+dowolną wiadomość z kolejki przy pomocy ``radio.receive()``. Jeżeli w kolejce
+jest wiadomość, następuje uśpienie na krótki czas (aby uczynić pokaz bardziej 
+interesującym) i przy pomocy animuje błyski świetlików. Na koniec, aby było 
+jeszcze bardziej ekscytująco, wybiera losowy numer tak, że ma jedną na dziesięć 
+szans na przesłanie wiadomości "flash" dalej do kogokolwiek (dzięki temu jest 
+możliwe utrzymanie pokazu świetlików wśród kilku urządzeń). Jeżeli urządzenie 
+zdecyduje się przesłać wiadomość dalej, czeka pół sekundy (by pierwotnie 
+wyświetlana wiadomości wygasła) przed ponownym wysłaniem wiadomości "flash". 
+Ponieważ ten kod znajduje się w bloku ``while True``, rozpoczyna pętlę 
+od początku i powtarza ją w nieskończoność.
+
+Import
+
+Końcowy wynik (korzystając z grupy micro:bitów) powinien wyglądać mniej więcej tak:
 
 .. image:: mb-firefly.gif
 
-.. footer:: The image of binary counting is released under the licensing details listed here: https://en.wikipedia.org/wiki/File:Binary_counter.gif
+.. footer:: Animacja schematu przeliczania na liczby binarne na warunkach licencji 
+dostępnej pod adresem:  https://en.wikipedia.org/wiki/File:Binary_counter.gif
